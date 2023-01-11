@@ -15,27 +15,12 @@ export const DivPrincipal = styled.div`
   display: flex;
   gap: 10px;
   padding: 0 10px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
 `;
 
 export const DataName = styled.p`
   width: 100%;
   color: white;
-`;
-
-export const DataPrice = styled.p`
-  border-right: 2px solid white;
-  padding: 0 10px;
-  color: white;
-  background-color: green;
-  font-weight: 700;
-`;
-
-export const DataTerm = styled.p`
-  padding: 0 10px;
-  color: white;
-  background-color: red;
-  font-weight: 700;
-  border-right: 2px solid white;
 `;
 
 export const DivData = styled.div`
@@ -53,10 +38,17 @@ export const FaTrashIcon = styled(FaTrash)`
   border-right: 2px solid white;
   padding-right: 10px;
   color: #aa0000;
+  &:hover {
+    color: #ff0000;
+  }
   cursor: pointer;
 `;
 
 export const FaPencilAltIcon = styled(FaPencilAlt)`
   height: 100%;
+  color: white;
+  &:hover {
+    color: #4169e1;
+  }
   cursor: pointer;
 `;

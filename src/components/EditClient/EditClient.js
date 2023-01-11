@@ -14,35 +14,41 @@ const EditClient = ({
   pagamento,
   cpf,
   telefone,
-  nasc,
   email,
   cidade,
   rua,
   numerocasa,
   id,
+  firstIndi,
+  secondIndi,
+  thirdIndi,
 }) => {
   const [editName, setEditName] = useState(nome);
   const [editPagamento, setEditPagamento] = useState(pagamento);
   const [editCpf, setEditCpf] = useState(cpf);
   const [editTelefone, setEditTelefone] = useState(telefone);
-  const [editNasc, setEditNasc] = useState(nasc);
   const [editEmail, setEditEmail] = useState(email);
   const [editCidade, setEditCidade] = useState(cidade);
   const [editRua, setEditRua] = useState(rua);
   const [editNumeroCasa, setEditNumeroCasa] = useState(numerocasa);
+  const [editFirstIndi, setEditFirstIndi] = useState(firstIndi);
+  const [editSecondIndi, setEditSecondIndi] = useState(secondIndi);
+  const [editThirdIndi, setEditThirdIndi] = useState(thirdIndi);
 
   const handleCloseSalvar = () => {
-    Axios.put("http://localhost:3001/editClient", {
+    Axios.put("http://localhost:5000/client/client", {
       id: id,
-      nome: editName,
+      name: editName,
       pagamento: editPagamento,
       cpf: editCpf,
       telefone: editTelefone,
-      nasc: editNasc,
       email: editEmail,
       cidade: editCidade,
       rua: editRua,
-      numerocasa: editNumeroCasa,
+      numero: editNumeroCasa,
+      firstIndi: editFirstIndi,
+      secondIndi: editSecondIndi,
+      thirdIndi: editThirdIndi,
     });
     setOpen(false);
     document.location.reload();
@@ -109,19 +115,6 @@ const EditClient = ({
           }}
         />
         <TextField
-          defaultValue={nasc}
-          autoFocus
-          margin="dense"
-          id="nascCliente"
-          label="Data de nascimento"
-          type="date"
-          fullWidth
-          variant="standard"
-          onChange={(e) => {
-            setEditNasc(e.target.value);
-          }}
-        />
-        <TextField
           defaultValue={email}
           autoFocus
           margin="dense"
@@ -172,6 +165,45 @@ const EditClient = ({
           variant="standard"
           onChange={(e) => {
             setEditNumeroCasa(e.target.value);
+          }}
+        />
+        <TextField
+          defaultValue={firstIndi}
+          autoFocus
+          margin="dense"
+          id="firstIndi"
+          label="Primeira indicação"
+          type="text"
+          fullWidth
+          variant="standard"
+          onChange={(e) => {
+            setEditFirstIndi(e.target.value);
+          }}
+        />
+        <TextField
+          defaultValue={secondIndi}
+          autoFocus
+          margin="dense"
+          id="secondIndi"
+          label="Segunda Indicação"
+          type="text"
+          fullWidth
+          variant="standard"
+          onChange={(e) => {
+            setEditSecondIndi(e.target.value);
+          }}
+        />
+        <TextField
+          defaultValue={thirdIndi}
+          autoFocus
+          margin="dense"
+          id="thirdIndi"
+          label="Terceira indicação"
+          type="text"
+          fullWidth
+          variant="standard"
+          onChange={(e) => {
+            setEditThirdIndi(e.target.value);
           }}
         />
       </DialogContent>

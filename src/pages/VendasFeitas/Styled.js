@@ -1,15 +1,20 @@
 import styled from "styled-components";
 
 export const DivPrincipal = styled.div`
-  label {
-    margin-top: 1rem;
-  }
   min-height: 81.75%;
-  display: flex;
   margin: 0 auto;
+  width: 82%;
+  display: flex;
+  div:first-child {
+    margin-top: 2rem;
+    width: 100%;
+  }
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.8rem;
   justify-content: flex-start;
   align-items: center;
-  width: 80%;
+  input {
+    width: 98%;
+    height: 2rem;
+  }
 `;

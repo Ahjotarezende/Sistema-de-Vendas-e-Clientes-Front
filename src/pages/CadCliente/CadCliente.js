@@ -5,12 +5,13 @@ import { DivPrincipal, ContainerValores } from "./Styled";
 import { useForm } from "react-hook-form";
 import Axios from "axios";
 
-const CadCliente = () => {
+const CadCliente = ({ clientList }) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    Axios.post("http://localhost:3001/registerClient", data).then((response) =>
-      console.log(response)
+    const id = clientList.length + 1;
+    Axios.post(`http://localhost:5000/client/client/${id}`, data).then(
+      (response) => console.log(response)
     );
     document.location.reload();
   };
@@ -27,6 +28,9 @@ const CadCliente = () => {
   const [cidade, setCidade] = useState();
   const [rua, setRua] = useState();
   const [numeroCasa, setNumeroCasa] = useState();
+  const [indi, setIndi] = useState("");
+  const [inditwo, setIndiTwo] = useState();
+  const [indiThree, setIndiThree] = useState();
 
   return (
     <DivPrincipal>
@@ -38,7 +42,7 @@ const CadCliente = () => {
           setValor={setNome}
           textLabel="Nome"
           type="text"
-          name="getNomeCliente"
+          name="name"
         />
         <InputComp
           setStart={setStart}
@@ -47,7 +51,7 @@ const CadCliente = () => {
           setValor={setCpf}
           textLabel="CPF"
           type="text"
-          name="getCpf"
+          name="cpf"
         />
         <InputComp
           setStart={setStart}
@@ -56,7 +60,7 @@ const CadCliente = () => {
           setValor={setPagamento}
           textLabel="Forma de pagamento"
           type="text"
-          name="getPagamento"
+          name="pagamento"
         />
         <InputComp
           setStart={setStart}
@@ -65,16 +69,7 @@ const CadCliente = () => {
           setValor={setTelefone}
           textLabel="Telefone de contato"
           type="text"
-          name="getTelefone"
-        />
-        <InputComp
-          setStart={setStart}
-          setFinish={setFinish}
-          register={register}
-          setValor={setNasc}
-          textLabel="Data de nascimento"
-          type="date"
-          name="getNascimento"
+          name="telefone"
         />
         <InputComp
           setStart={setStart}
@@ -83,7 +78,7 @@ const CadCliente = () => {
           setValor={setEmail}
           textLabel="Email"
           type="text"
-          name="getEmail"
+          name="email"
         />
         <InputComp
           setStart={setStart}
@@ -92,7 +87,7 @@ const CadCliente = () => {
           setValor={setCidade}
           textLabel="Cidade"
           type="text"
-          name="getCidade"
+          name="cidade"
         />
         <InputComp
           setStart={setStart}
@@ -101,7 +96,7 @@ const CadCliente = () => {
           setValor={setRua}
           textLabel="Rua"
           type="text"
-          name="getRua"
+          name="rua"
         />
         <InputComp
           setStart={setStart}
@@ -111,7 +106,34 @@ const CadCliente = () => {
           textLabel="Nº da casa"
           type="number"
           min="1"
-          name="getNumCasa"
+          name="numero"
+        />
+        <InputComp
+          setStart={setStart}
+          setFinish={setFinish}
+          register={register}
+          setValor={setIndi}
+          textLabel="Indicação 1"
+          type="text"
+          name="firstIndi"
+        />
+        <InputComp
+          setStart={setStart}
+          setFinish={setFinish}
+          register={register}
+          setValor={setIndiTwo}
+          textLabel="Indicação 2"
+          type="text"
+          name="secondIndi"
+        />
+        <InputComp
+          setStart={setStart}
+          setFinish={setFinish}
+          register={register}
+          setValor={setIndiThree}
+          textLabel="Indicação 3"
+          type="text"
+          name="thirdIndi"
         />
         <Button type="submit" text="Cadastrar!" />
       </ContainerValores>

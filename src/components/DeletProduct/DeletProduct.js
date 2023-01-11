@@ -13,7 +13,7 @@ const DeletProduct = ({ setOpenDelet, openDelet, name, id }) => {
   };
 
   const handleCloseDeletar = () => {
-    Axios.delete(`http://localhost:3001/deleteProduct/${id}`);
+    Axios.delete(`http://localhost:5000/item/item/${id}`);
     document.location.reload();
     setOpenDelet(false);
   };

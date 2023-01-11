@@ -5,10 +5,11 @@ export const DivPrincipal = styled.div`
   display: flex;
   justify-content: space-between;
   border: 2px solid white;
-  border-radius: 10px;
+  border-radius: 8px;
   margin-top: 1rem;
   height: 3rem;
   background-color: gray;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
   .quantProduto {
     font-weight: 700;
     text-align: center;
@@ -42,7 +43,7 @@ export const TextName = styled.p`
 
 export const DeleteButton = styled.button`
   color: white;
-  background-color: red;
+  background-image: linear-gradient(to bottom, red, darkred);
   padding: 1rem;
   height: 100%;
   border: none;
@@ -51,7 +52,7 @@ export const DeleteButton = styled.button`
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   &:hover {
-    background-color: darkred;
+    background-image: linear-gradient(red, red);
   }
 `;
 

@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navegation, LinkPage, LinkImg } from "./Style";
-import LogoLoja from "../../assets/Logo.png";
+import Bag from "../../assets/Bag - PNG.png";
+import BagBranca from "../../assets/Bag - Branca PNG.png";
 
 const NavBar = () => {
+  const [logo, setLogo] = useState(Bag);
+
   return (
     <Navegation>
       <LinkImg to="/">
-        <img src={LogoLoja} alt="Logo da Loja" />
+        <img
+          src={logo}
+          alt="Logo da loja"
+          onMouseEnter={() => setLogo(BagBranca)}
+          onMouseLeave={() => setLogo(Bag)}
+        />
       </LinkImg>
       <ul>
         <LinkPage to="/clientes">Clientes</LinkPage>

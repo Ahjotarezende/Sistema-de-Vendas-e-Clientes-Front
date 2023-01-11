@@ -9,7 +9,7 @@ export const DivPrincipal = styled.div`
 `;
 
 export const ContainerValores = styled.form`
-  border: 2px dashed orange;
+  border: 2px dashed white;
   border-radius: 8px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -22,10 +22,13 @@ export const ContainerValores = styled.form`
     font-family: "Nunito", sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
-    color: orange;
-    background-color: black;
+    color: #4169e1;
+    background-image: linear-gradient(to top, #242323, #3e3e3e);
     border: 1px solid white;
     border-radius: 5px;
     align-self: center;
+    &:hover {
+      color: white;
+    }
   }
 `;

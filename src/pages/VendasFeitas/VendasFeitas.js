@@ -1,29 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { DivPrincipal } from "./Styled";
 import InputComp from "../../components/InputComp/InputComp";
 import { useForm } from "react-hook-form";
-import Axios from "axios";
 import ViewSales from "../../components/ViewSales/ViewSales";
 import Pagination from "../../components/Pagination/Pagination";
 
-const VendasFeitas = () => {
+const VendasFeitas = ({ arraySales }) => {
   const [start, setStart] = useState(0);
   const [finish, setFinish] = useState(9);
   const [searchSale, setSearchSale] = useState("");
-  const [arraySales, setArraySales] = useState([]);
 
   const { register } = useForm();
-
-  useEffect(() => {
-    Axios.get("http://localhost:3001/getSales").then((response) => {
-      setArraySales(response.data);
-    });
-  }, []);
 
   const lowerSearch = searchSale.toLowerCase();
 
   const filterList = arraySales.filter((venda) =>
-    venda.nome.toLowerCase().includes(lowerSearch)
+    venda.name.toLowerCase().includes(lowerSearch)
   );
 
   return (
@@ -41,11 +33,10 @@ const VendasFeitas = () => {
 
       {filterList.slice(start, finish).map((value) => (
         <ViewSales
-          key={"venda" + value.idVenda}
-          idVenda={value.idVenda}
-          name={value.nome}
-          dateSale={value.dataVenda.slice(0, 10)}
-          cpf={value.cpf}
+          key={"venda" + value.id}
+          idVenda={value.id}
+          name={value.name}
+          dateSale={value.data}
           formaPagamento={value.pagamento}
         />
       ))}

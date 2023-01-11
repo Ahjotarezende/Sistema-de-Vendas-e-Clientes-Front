@@ -25,6 +25,7 @@ const Input = ({
           setValor(e.target.value);
         },
       })}
+      required
     />
   );
 };

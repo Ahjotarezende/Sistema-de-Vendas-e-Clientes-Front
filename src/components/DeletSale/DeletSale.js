@@ -7,13 +7,13 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Axios from "axios";
 
-const DeletProduct = ({ setOpenDelet, openDelet, name, id }) => {
+const DeletSale = ({ setOpenDelet, openDelet, name, id }) => {
   const handleClose = () => {
     setOpenDelet(false);
   };
 
   const handleCloseDeletar = () => {
-    Axios.delete(`http://localhost:3001/deleteSale/${id}`);
+    Axios.delete(`http://localhost:5000/sale/sale/${id}`);
     document.location.reload();
     setOpenDelet(false);
   };
@@ -48,4 +48,4 @@ const DeletProduct = ({ setOpenDelet, openDelet, name, id }) => {
   );
 };
 
-export default DeletProduct;
+export default DeletSale;

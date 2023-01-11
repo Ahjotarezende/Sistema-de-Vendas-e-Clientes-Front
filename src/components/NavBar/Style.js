@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Navegation = styled.nav`
   padding: 0 1rem;
   font-size: 1em;
-  background-color: #0f0d0d;
+  background-image: linear-gradient(to bottom, #282727, #3e3e3e);
   height: 4.3em;
   display: flex;
   justify-content: space-between;
@@ -20,12 +20,14 @@ export const LinkPage = styled(Link)`
   text-decoration: none;
   font-weight: 700;
   &:hover {
-    color: #ffdb00;
+    color: #4169e1;
   }
 `;
 
 export const LinkImg = styled(Link)`
   height: 100%;
+  display: flex;
+  align-items: center;
   img {
     height: 100%;
     cursor: pointer;

@@ -5,6 +5,8 @@ import {
   DivSearch,
   ClientInfo,
   FinishSale,
+  Rota,
+  Loading,
 } from "./Styled";
 import Axios from "axios";
 import Select from "react-select";
@@ -14,11 +16,12 @@ import Label from "../../components/Label/Label";
 import LabelInfo from "../../components/LabelInfo/LabelInfo";
 import ItemAdded from "../../components/ItemAdded/ItemAdded";
 
-const RealVenda = () => {
+const RealVenda = ({ arraySales }) => {
   const [arrayClients, setArrayClients] = useState([{}]);
   const [arrayItens, setArrayItens] = useState([{}]);
-  const [lastID, setLastID] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState();
+  const [viewLoading, setViewLoading] = useState("none");
+  const [rotaViagem, setRotaViagem] = useState("");
   const [selectedArrayProduct, setSelectedArrayProduct] = useState([]);
   const [approvedSale, setApprovedSale] = useState(false);
   const [cliente, setCliente] = useState({
@@ -35,57 +38,82 @@ const RealVenda = () => {
   });
 
   const finalizarVenda = () => {
-    selectedArrayProduct.map((data) => {
-      return (
-        (data["idCliente"] = cliente.value),
-        (data["idVenda"] = Number(lastID) + 1)
-      );
+    setViewLoading("");
+    const name = cliente.label;
+    const id = arraySales.length + 1;
+    const rota = rotaViagem;
+    const sale = [];
+    const promisses = [];
+    const pagamento = cliente.pagamento;
+    // eslint-disable-next-line
+    selectedArrayProduct.map((item) => {
+      const newProduct = {
+        id: item.value,
+        name: item.label,
+        vista: item.vista,
+        prazo: item.prazo,
+        cheque: item.cheque,
+        quantidade: item.quantidade,
+        compra: item.compra,
+      };
+      const produto = {
+        name: item.label,
+        quant: item.subtraiu,
+        valor: pagamento.toLowerCase().includes("vista")
+          ? item.vista
+          : pagamento.toLowerCase().includes("prazo")
+          ? item.prazo
+          : item.cheque,
+      };
+      sale.push(produto);
+      promisses.push(Axios.put("http://localhost:5000/item/item", newProduct));
     });
-    Axios.post("http://localhost:3001/registrarVenda", selectedArrayProduct);
-    Axios.put("http://localhost:3001/editProductSold", selectedArrayProduct);
-    document.location.reload();
+    Axios.post(
+      `http://localhost:5000/sale/sale/${name}/${id}/${rota}/${pagamento}`,
+      sale
+    );
+    Promise.all(promisses);
+    setTimeout(() => {
+      alert(`Finalizado`);
+      document.location.reload();
+    }, 3000);
   };
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/getClients").then((response) => {
+    Axios.get("http://localhost:5000/client/client").then((response) => {
       setArrayClients(
         response.data.map((data) => ({
-          label: data.nome,
+          label: data.name,
           value: data.id,
           pagamento: data.pagamento,
           cpf: data.cpf,
           telefone: data.telefone,
-          nasc: data.nasc,
           email: data.email,
           cidade: data.cidade,
           rua: data.rua,
-          numerocasa: data.numerocasa,
+          numerocasa: data.numero,
         }))
       );
     });
 
-    Axios.get("http://localhost:3001/getItems").then((response) => {
+    Axios.get("http://localhost:5000/item/item").then((response) => {
       setArrayItens(
         response.data.map((data) => ({
-          label: data.nome,
-          value: data.idProduto,
+          label: data.name,
+          value: data.id,
           quantidade: data.quantidade,
-          precovista: data.precovista,
-          precoprazo: data.precoprazo,
-          precocheque: data.precocheque,
-          precocompra: data.precocompra,
+          vista: data.vista,
+          prazo: data.prazo,
+          cheque: data.cheque,
+          compra: data.compra,
         }))
       );
-    });
-
-    Axios.get("http://localhost:3001/getLastID").then((response) => {
-      const value = response.data.map((data) => data["max(idVenda)"]);
-      value[0] === null ? setLastID(0) : setLastID(value[0]);
     });
   }, []);
 
   return (
     <DivPrincipal>
+      <Loading className={viewLoading}>Carregando...</Loading>
       <DivSearch>
         <Label text="Procurar Cliente" />
         <Select
@@ -102,7 +130,10 @@ const RealVenda = () => {
         <InputMask valor={cliente.telefone} text="Telefone p/ contato" />
         <InputMask valor={cliente.cpf} text="CPF" />
       </ClientInfo>
-
+      <Rota
+        placeholder="Rota de viagem"
+        onChange={(e) => setRotaViagem(e.target.value)}
+      />
       <AddItem>
         <Select
           options={arrayItens}
@@ -110,7 +141,7 @@ const RealVenda = () => {
           className="selecionarItem"
         />
         <button
-          disabled={!selectedProduct}
+          disabled={!selectedProduct || !cliente.label}
           onClick={() => {
             setSelectedArrayProduct([...selectedArrayProduct, selectedProduct]);
           }}
@@ -124,8 +155,6 @@ const RealVenda = () => {
           selectedArrayProduct={selectedArrayProduct}
           setSelectedArrayProduct={setSelectedArrayProduct}
           key={i}
-          chave={i}
-          cliente={cliente}
           item={data}
           pagamento={cliente.pagamento.toLowerCase()}
           setApprovedSale={setApprovedSale}
@@ -133,7 +162,7 @@ const RealVenda = () => {
       ))}
       {selectedArrayProduct.length ? (
         <FinishSale
-          disabled={!approvedSale || !cliente.label}
+          disabled={!approvedSale || !cliente.label || !rotaViagem}
           onClick={() => finalizarVenda()}
         >
           Concluir

@@ -16,11 +16,13 @@ const ViewData = ({
   pagamento,
   cpf,
   telefone,
-  nasc,
   email,
   cidade,
   rua,
   numerocasa,
+  firstIndi,
+  secondIndi,
+  thirdIndi,
 }) => {
   const [open, setOpen] = React.useState(false);
   const [openDelet, setOpenDelet] = React.useState(false);
@@ -49,11 +51,13 @@ const ViewData = ({
         pagamento={pagamento}
         cpf={cpf}
         telefone={telefone}
-        nasc={nasc.slice(0, 10)}
         email={email}
         cidade={cidade}
         rua={rua}
         numerocasa={numerocasa}
+        firstIndi={firstIndi}
+        secondIndi={secondIndi}
+        thirdIndi={thirdIndi}
       />
       <DataID>{clientID}</DataID>
       <DivData>

@@ -1,7 +1,8 @@
 import React from "react";
+import { ButtonComp } from "./Styles";
 
 const Button = ({ type, text }) => {
-  return <button type={type}>{text}</button>;
+  return <ButtonComp type={type}>{text}</ButtonComp>;
 };
 
 export default Button;

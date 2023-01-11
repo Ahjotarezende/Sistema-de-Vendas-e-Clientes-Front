@@ -1,11 +1,9 @@
 import * as React from "react";
 import Dialog from "@mui/material/Dialog";
-import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
-import AppBar from "@mui/material/AppBar";
-import GerarPDF from "../GerarPDF/GerarPDF";
+import Divider from "@mui/material/Divider";
+// import GerarPDF from "../GerarPDF/GerarPDF";
 
 import Axios from "axios";
 import {
@@ -14,21 +12,19 @@ import {
   ListItemTextUI,
   ListItemTextValor,
   ToolbarUI,
-  ButtonUI,
+  CloseIconUI,
+  // ButtonUI,
+  DivASS,
 } from "./Styled";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const definePreco = (vendaList) => {
+const definePreco = (venda) => {
   let valor = 0;
-  for (let index = 0; index < vendaList.length; index++) {
-    if (vendaList[index].pagamento.toLowerCase().includes("vista"))
-      valor += vendaList[index].precovista * vendaList[index].quantidade;
-    else if (vendaList[index].pagamento.toLowerCase().includes("prazo"))
-      valor += vendaList[index].precoprazo * vendaList[index].quantidade;
-    else valor += vendaList[index].precocheque * vendaList[index].quantidade;
+  for (let index = 0; index < venda.items.length; index++) {
+    valor += venda.items[index].valor * venda.items[index].quant;
   }
   return valor.toFixed(2);
 };
@@ -39,14 +35,21 @@ export default function FullScreenDialog({
   id,
   name,
   dateSale,
-  cpf,
   formaPagamento,
 }) {
-  const [vendaList, setVendaList] = React.useState([]);
+  const [venda, setVenda] = React.useState({
+    items: [
+      {
+        name: "",
+        quant: 0,
+        valor: 0,
+      },
+    ],
+  });
 
   React.useEffect(() => {
-    Axios.get(`http://localhost:3001/getSale/${id}`).then((response) => {
-      setVendaList(response.data);
+    Axios.get(`http://localhost:5000/sale/sale/${id}`).then((response) => {
+      setVenda(response.data);
     });
   }, [id]);
 
@@ -62,7 +65,7 @@ export default function FullScreenDialog({
       onClose={handleClose}
       TransitionComponent={Transition}
     >
-      <AppBar sx={{ position: "relative" }}>
+      <div>
         <ToolbarUI>
           <IconButton
             edge="start"
@@ -70,47 +73,40 @@ export default function FullScreenDialog({
             onClick={handleClose}
             aria-label="close"
           >
-            <CloseIcon />
+            <CloseIconUI />
           </IconButton>
           <TypographyUI sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-            {name} - {dateSale}
+            {name} - {dateSale} - Rota: {venda.rota ? venda.rota : ""}
           </TypographyUI>
-          <ButtonUI
+          {/* <ButtonUI
             onClick={() =>
-              GerarPDF(name, dateSale, cpf, formaPagamento, vendaList)
+              GerarPDF(name, dateSale, cpf, formaPagamento, venda)
             }
           >
             Imprimir
-          </ButtonUI>
+          </ButtonUI> */}
         </ToolbarUI>
-      </AppBar>
+      </div>
       <ListUI>
-        {vendaList.map((venda, i) => (
+        {venda.items.map((item, i) => (
           <div key={"item" + i}>
             <ListItemTextUI
-              primary={venda.nome}
-              secondary={`Quantidade: ${venda.quantidade} - Preço unitario: ${
-                venda.pagamento.toLowerCase().includes("vista")
-                  ? venda.precovista.toFixed(2)
-                  : venda.pagamento.toLowerCase().includes("prazo")
-                  ? venda.precoprazo.toFixed(2)
-                  : venda.precocheque.toFixed(2)
-              } - Preço total: ${
-                venda.pagamento.toLowerCase().includes("vista")
-                  ? (venda.precovista * venda.quantidade).toFixed(2)
-                  : venda.pagamento.toLowerCase().includes("prazo")
-                  ? (venda.precoprazo * venda.quantidade).toFixed(2)
-                  : (venda.precocheque * venda.quantidade).toFixed(2)
-              }`}
+              primary={item.name}
+              secondary={`Quantidade: ${
+                item.quant
+              } - Preço unitario: ${item.valor.toFixed(2)} - Preço total: ${(
+                item.valor * item.quant
+              ).toFixed(2)}`}
             />
             <Divider />
           </div>
         ))}
         <ListItemTextValor
-          primary={`Total: ${definePreco(vendaList)}`}
+          primary={`Total: ${definePreco(venda)}`}
           secondary={formaPagamento}
         />
       </ListUI>
+      <DivASS>Assinado no nome de {name}</DivASS>
     </Dialog>
   );
 }

@@ -5,10 +5,11 @@ import { DivPrincipal, ContainerValores, DivForne } from "./Styled";
 import { useForm } from "react-hook-form";
 import Axios from "axios";
 
-const CadItem = () => {
+const CadItem = ({ productList }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    Axios.post("http://localhost:3001/registerProduct", data).then((response) =>
+    const id = productList.length + 1;
+    Axios.post(`http://localhost:5000/item/item/${id}`, data).then((response) =>
       console.log(response)
     );
     document.location.reload();
@@ -34,7 +35,7 @@ const CadItem = () => {
           setValor={setItem}
           textLabel="Nome Item"
           type="text"
-          name="getItem"
+          name="name"
         />
         <DivForne>
           <InputComp
@@ -46,7 +47,7 @@ const CadItem = () => {
             type="number"
             min="0.00"
             step="0.01"
-            name="getCusto"
+            name="compra"
           />
           <InputComp
             setStart={setStart}
@@ -56,7 +57,7 @@ const CadItem = () => {
             textLabel="Quantidade"
             type="number"
             min="0"
-            name="getQuant"
+            name="quantidade"
           />
         </DivForne>
         <InputComp
@@ -68,7 +69,7 @@ const CadItem = () => {
           type="number"
           step="0.01"
           min="0.00"
-          name="getValor"
+          name="vista"
         />
         <InputComp
           setStart={setStart}
@@ -79,7 +80,7 @@ const CadItem = () => {
           type="number"
           step="0.01"
           min="0.00"
-          name="getPrazo"
+          name="prazo"
         />
         <InputComp
           setStart={setStart}
@@ -90,7 +91,7 @@ const CadItem = () => {
           type="number"
           step="0.01"
           min="0.00"
-          name="getCheque"
+          name="cheque"
         />
         <Button type="submit" text="Cadastrar!" />
       </ContainerValores>

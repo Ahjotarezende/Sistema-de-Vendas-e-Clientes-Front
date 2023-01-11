@@ -3,6 +3,11 @@ import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
+import CloseIcon from "@mui/icons-material/Close";
+
+export const CloseIconUI = styled(CloseIcon)`
+  color: white;
+`;
 
 export const ListItemTextUI = styled(ListItemText)`
   margin-left: 10px;
@@ -16,7 +21,8 @@ export const ListItemTextUI = styled(ListItemText)`
 `;
 
 export const ToolbarUI = styled(Toolbar)`
-  background-color: lightgray;
+  background-image: linear-gradient(to top, #d3d3d3, #a1a1a1);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
   div {
     font-family: "Nunito", sans-serif;
   }
@@ -41,6 +47,18 @@ export const ListUI = styled(List)`
 
 export const TypographyUI = styled(Typography)`
   color: black;
+`;
+
+export const DivASS = styled.div`
+  height: 5rem;
+  position: relative;
+  align-self: center;
+  bottom: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 2px solid black;
+  width: 27rem;
 `;
 
 export const ButtonUI = styled.button`

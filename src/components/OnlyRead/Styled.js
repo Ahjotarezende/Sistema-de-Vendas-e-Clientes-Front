@@ -10,6 +10,7 @@ export const InputRead = styled.input`
   border: 2px solid white;
   color: white;
   border-radius: 0.5rem;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
 `;
 
 export const InputMaskered = styled(InputMask)`
@@ -21,4 +22,5 @@ export const InputMaskered = styled(InputMask)`
   border: 2px solid white;
   color: white;
   border-radius: 0.5rem;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
 `;

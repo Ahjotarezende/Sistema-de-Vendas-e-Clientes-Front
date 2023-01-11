@@ -10,7 +10,7 @@ import {
 import DeletSale from "../DeletSale/DeletSale";
 import InfoSale from "../../components/InfoSale/InfoSale";
 
-const ViewSales = ({ name, idVenda, dateSale, cpf, formaPagamento }) => {
+const ViewSales = ({ name, idVenda, dateSale, formaPagamento }) => {
   const [openDelet, setOpenDelet] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -30,7 +30,6 @@ const ViewSales = ({ name, idVenda, dateSale, cpf, formaPagamento }) => {
         id={idVenda}
         name={name}
         dateSale={dateSale}
-        cpf={cpf}
         formaPagamento={formaPagamento}
       />
       <DeletSale

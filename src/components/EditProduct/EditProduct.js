@@ -30,14 +30,14 @@ const EditProduct = ({
   };
 
   const handleCloseSalvar = () => {
-    Axios.put("http://localhost:3001/editProduct", {
+    Axios.put("http://localhost:5000/item/item", {
       id: idProduto,
-      nome: editName,
-      quant: editQuant,
-      precoVista: editVista,
-      precoPrazo: editPrazo,
-      precoCheque: editCheque,
-      precoCompra: editCompra,
+      name: editName,
+      quantidade: editQuant,
+      vista: editVista,
+      prazo: editPrazo,
+      cheque: editCheque,
+      compra: editCompra,
     });
     setOpen(false);
     document.location.reload();

@@ -6,24 +6,23 @@ import Axios from "axios";
 import ViewClient from "../../components/ViewClient/ViewClient.js";
 import Pagination from "../../components/Pagination/Pagination";
 
-const Clientes = () => {
+const Clientes = ({ clientList, setClientList }) => {
   const { register } = useForm();
   const [searchClient, setSearchClient] = useState("");
-  const [clientList, setClientList] = useState([]);
   const [start, setStart] = useState(0);
   const [finish, setFinish] = useState(9);
 
   const lowerSearch = searchClient.toLowerCase();
 
   const filterList = clientList.filter((cliente) =>
-    cliente.nome.toLowerCase().includes(lowerSearch)
+    cliente.name.toLowerCase().includes(lowerSearch)
   );
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/getClients").then((response) => {
+    Axios.get("http://localhost:5000/client/client").then((response) => {
       setClientList(response.data);
     });
-  }, []);
+  }, [setClientList]);
 
   return (
     <DivPrincipal>
@@ -43,15 +42,17 @@ const Clientes = () => {
         <ViewClient
           key={"cliente" + value.id}
           clientID={value.id}
-          name={value.nome}
+          name={value.name}
           pagamento={value.pagamento}
           cpf={value.cpf}
           telefone={value.telefone}
-          nasc={value.nasc}
           email={value.email}
           cidade={value.cidade}
           rua={value.rua}
-          numerocasa={value.numerocasa}
+          numerocasa={value.numero}
+          firstIndi={value.firstIndi}
+          secondIndi={value.secondIndi}
+          thirdIndi={value.thirdIndi}
         />
       ))}
       {filterList.length > 9 && (

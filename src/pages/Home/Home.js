@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import InputComp from "../../components/InputComp/InputComp";
 import {
   DivPrincipal,
@@ -14,28 +14,20 @@ import {
   InfoQuant,
 } from "./Styled";
 import { useForm } from "react-hook-form";
-import Axios from "axios";
 import ViewProduct from "../../components/ViewProduct/ViewProduct.js";
 import Pagination from "../../components/Pagination/Pagination";
 
-const Home = () => {
+const Home = ({ productList }) => {
   const { register } = useForm();
   const [searchItem, setSearchItem] = useState("");
   const [start, setStart] = useState(0);
   const [finish, setFinish] = useState(9);
-  const [productList, setProductList] = useState([]);
 
   const lowerSearch = searchItem.toLowerCase();
 
   const filterList = productList.filter((produto) =>
-    produto.nome.toLowerCase().includes(lowerSearch)
+    produto.name.toLowerCase().includes(lowerSearch)
   );
-
-  useEffect(() => {
-    Axios.get("http://localhost:3001/getItems").then((response) => {
-      setProductList(response.data);
-    });
-  }, []);
 
   return (
     <DivPrincipal>
@@ -65,14 +57,14 @@ const Home = () => {
         </DivInfo>
         {filterList.slice(start, finish).map((value) => (
           <ViewProduct
-            key={value.idProduto}
-            productID={value.idProduto}
+            key={value.id}
+            productID={value.id}
             quant={value.quantidade}
-            name={value.nome}
-            precoCompra={value.precocompra.toFixed(2)}
-            price={value.precovista.toFixed(2)}
-            priceCheque={value.precocheque.toFixed(2)}
-            priceTerm={value.precoprazo.toFixed(2)}
+            name={value.name}
+            precoCompra={value.compra.toFixed(2)}
+            price={value.vista.toFixed(2)}
+            priceCheque={value.cheque.toFixed(2)}
+            priceTerm={value.prazo.toFixed(2)}
           />
         ))}
       </Content>

@@ -20,7 +20,7 @@ export const SaleDate = styled.p`
 `;
 
 export const DivPrincipal = styled.div`
-  width: 100%;
+  width: 98%;
   border: 2px solid white;
   height: 2.5rem;
   border-radius: 10px;
@@ -28,17 +28,7 @@ export const DivPrincipal = styled.div`
   display: flex;
   gap: 10px;
   padding: 0 10px;
-  &:hover {
-    p {
-      color: black;
-    }
-    p,
-    svg {
-      border-color: black;
-    }
-    background-color: light;
-    border-color: black;
-  }
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
 `;
 
 export const SaleName = styled.p`
@@ -56,13 +46,19 @@ export const FaTrashIcon = styled(FaTrash)`
   width: 1.3rem;
   color: #aa0000;
   cursor: pointer;
+  &:hover {
+    color: red;
+  }
 `;
 
 export const FaEyeIcon = styled(FaEye)`
   height: 100%;
   width: 1.3rem;
-  color: darkblue;
+  color: white;
   cursor: pointer;
   border-left: 2px solid white;
   padding-left: 10px;
+  &:hover {
+    color: #4169e1;
+  }
 `;
