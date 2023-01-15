@@ -14,7 +14,7 @@ import {
 
 const defineCost = (pagamento, item) => {
   if (pagamento.includes("vista")) return item.vista;
-  else if (pagamento.includes("cheque")) return item.cheque;
+  else if (pagamento.includes("viagem")) return item.viagem;
   else return item.prazo;
 };
 
@@ -27,27 +27,27 @@ const ItemAdded = ({
 }) => {
   const delProd = (op) => {
     if (classButton) {
+      op.alterado = 0
       op.quantidade += Number(quantidade);
       op.subtraiu = 0;
     }
     const newList = selectedArrayProduct.filter((rdm) => {
-      return (
-        (rdm.quantidade += rdm.subtraiu),
-        (rdm.subtraiu = 0),
-        rdm.label !== op.label
-      );
+      return rdm.label !== op.label;
     });
     setSelectedArrayProduct(newList);
-    setClassButton("");
   };
+
+  console.log(item)
 
   const defineQuant = () => {
     item.quantidade -= quantidade;
     item["subtraiu"] = Number(quantidade);
+    value ? item['alterado'] = Number(value) : item['alterado'] = 0;
     setClassButton("green");
   };
 
   const [quantidade, setQuantidade] = useState(0);
+  const [value, setValue] = useState();
   const [classButton, setClassButton] = useState("");
 
   if (classButton) setApprovedSale(true);
@@ -60,7 +60,7 @@ const ItemAdded = ({
         <TextName>{item.label}</TextName>
       </FirstDiv>
       <SecondDiv>
-        {quantidade > item.quantidade && !classButton ? (
+        {quantidade ? quantidade > item.quantidade && !classButton ? (
           <ErrorMessage>Você não tem essa quant. disponível</ErrorMessage>
         ) : (
           <ConfirmQuant
@@ -68,19 +68,19 @@ const ItemAdded = ({
             disabled={classButton}
             onClick={() => defineQuant()}
           ></ConfirmQuant>
-        )}
+        ) : ""}
         <input
           className="quantProduto"
           type="number"
-          min={0}
+          min={1}
           readOnly={classButton}
           onChange={(e) => {
             setQuantidade(e.target.value);
           }}
         />
-        <TextValor>{defineCost(pagamento, item)}</TextValor>
+        <TextValor value={ value || (defineCost(pagamento, item)).toFixed(2)} onChange={(e)=>setValue(e.target.value)}/>
         <TextValorFinal>
-          {quantidade * defineCost(pagamento, item)}
+          {(quantidade * ( value || defineCost(pagamento, item))).toFixed(2)}
         </TextValorFinal>
         <DeleteButton onClick={() => delProd(item)}>Deletar</DeleteButton>
       </SecondDiv>

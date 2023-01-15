@@ -43,10 +43,34 @@ export const ListItemTextValor = styled(ListItemText)`
 
 export const ListUI = styled(List)`
   height: 100%;
+  page-break-before: always ;
+`;
+
+export const Infos = styled.div`
+  font-size: 1rem;
+  font-weight: 700;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border-bottom: 2px solid black;
+  height: 2rem;
+  &:nth-child(even) {
+    background-color: lightgray;
+  }
+  p {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const TypographyUI = styled(Typography)`
   color: black;
+  display: flex;
+  align-items: center;
+  img {
+    width: 4rem;
+  }
 `;
 
 export const DivASS = styled.div`
@@ -62,6 +86,7 @@ export const DivASS = styled.div`
 `;
 
 export const ButtonUI = styled.button`
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
   width: 6rem;
   height: 3rem;
   font-weight: bold;

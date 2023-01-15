@@ -11,7 +11,7 @@ const EditProduct = ({
   setOpen,
   open,
   nomeProduto,
-  precoCheque,
+  precoViagem,
   precoCompra,
   precoVista,
   quant,
@@ -22,7 +22,7 @@ const EditProduct = ({
   const [editQuant, setEditQuant] = useState(quant);
   const [editVista, setEditVista] = useState(precoVista);
   const [editPrazo, setEditPrazo] = useState(precoPrazo);
-  const [editCheque, setEditCheque] = useState(precoCheque);
+  const [editViagem, setEditViagem] = useState(precoViagem);
   const [editCompra, setEditCompra] = useState(precoCompra);
 
   const handleClose = () => {
@@ -36,7 +36,7 @@ const EditProduct = ({
       quantidade: editQuant,
       vista: editVista,
       prazo: editPrazo,
-      cheque: editCheque,
+      viagem: editViagem,
       compra: editCompra,
     });
     setOpen(false);
@@ -120,18 +120,18 @@ const EditProduct = ({
           }}
         />
         <TextField
-          defaultValue={precoCheque}
+          defaultValue={precoViagem}
           autoFocus
           margin="dense"
-          id="precoChequeProduto"
-          label="Preço - Cheque"
+          id="precoViagemProduto"
+          label="Preço - Viagem"
           type="number"
           min="0.00"
           step="0.01"
           fullWidth
           variant="standard"
           onChange={(e) => {
-            setEditCheque(e.target.value);
+            setEditViagem(e.target.value);
           }}
         />
       </DialogContent>

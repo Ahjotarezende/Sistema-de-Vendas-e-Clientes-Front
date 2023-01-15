@@ -10,7 +10,7 @@ const getData = () => {
 };
 
 const Footer = () => {
-  const [logo, setLogo] = useState(LogoLoja);
+  const [logo, setLogo] = useState(LogoBrancaLoja);
 
   return (
     <FooterPage>

@@ -63,7 +63,7 @@ const Home = ({ productList }) => {
             name={value.name}
             precoCompra={value.compra.toFixed(2)}
             price={value.vista.toFixed(2)}
-            priceCheque={value.cheque.toFixed(2)}
+            priceViagem={value.viagem.toFixed(2)}
             priceTerm={value.prazo.toFixed(2)}
           />
         ))}

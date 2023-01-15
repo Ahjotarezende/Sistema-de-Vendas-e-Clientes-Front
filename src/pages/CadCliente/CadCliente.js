@@ -21,6 +21,7 @@ const CadCliente = ({ clientList }) => {
   const [finish, setFinish] = useState();
   const [nome, setNome] = useState();
   const [cpf, setCpf] = useState();
+  const [cnpj, setCnpj] = useState();
   const [pagamento, setPagamento] = useState();
   const [telefone, setTelefone] = useState();
   const [nasc, setNasc] = useState();
@@ -57,19 +58,19 @@ const CadCliente = ({ clientList }) => {
           setStart={setStart}
           setFinish={setFinish}
           register={register}
-          setValor={setPagamento}
-          textLabel="Forma de pagamento"
+          setValor={setTelefone}
+          textLabel="Telefone de contato"
           type="text"
-          name="pagamento"
+          name="telefone"
         />
         <InputComp
           setStart={setStart}
           setFinish={setFinish}
           register={register}
-          setValor={setTelefone}
-          textLabel="Telefone de contato"
+          setValor={setCnpj}
+          textLabel="CNPJ"
           type="text"
-          name="telefone"
+          name="cnpj"
         />
         <InputComp
           setStart={setStart}

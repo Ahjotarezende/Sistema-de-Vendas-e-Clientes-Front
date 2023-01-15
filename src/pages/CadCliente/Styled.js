@@ -28,6 +28,7 @@ export const ContainerValores = styled.form`
     border-radius: 5px;
     align-self: center;
     &:hover {
+      background-image: linear-gradient(to bottom, #3058d0, #4169e1);
       color: white;
     }
   }

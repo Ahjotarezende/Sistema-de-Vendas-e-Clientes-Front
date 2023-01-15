@@ -2,8 +2,12 @@ import styled from "styled-components";
 import { FaTrash, FaPencilAlt } from "react-icons/fa";
 
 export const DataID = styled.p`
+  width: 4rem;
   color: white;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const DivPrincipal = styled.div`
@@ -68,9 +72,16 @@ export const FaTrashIcon = styled(FaTrash)`
   padding-right: 10px;
   color: #aa0000;
   cursor: pointer;
+  &:hover {
+    color: red;
+  }
 `;
 
 export const FaPencilAltIcon = styled(FaPencilAlt)`
   height: 100%;
+  color: white;
   cursor: pointer;
+  &:hover {
+    color: #4169e1;
+  }
 `;

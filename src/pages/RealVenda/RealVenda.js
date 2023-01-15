@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   DivPrincipal,
-  AddItem,
+  Pagamento,
   DivSearch,
   ClientInfo,
   FinishSale,
@@ -19,7 +19,7 @@ import ItemAdded from "../../components/ItemAdded/ItemAdded";
 const RealVenda = ({ arraySales }) => {
   const [arrayClients, setArrayClients] = useState([{}]);
   const [arrayItens, setArrayItens] = useState([{}]);
-  const [selectedProduct, setSelectedProduct] = useState();
+  const [pagamento, setPagamento] = useState("A vista");
   const [viewLoading, setViewLoading] = useState("none");
   const [rotaViagem, setRotaViagem] = useState("");
   const [selectedArrayProduct, setSelectedArrayProduct] = useState([]);
@@ -27,7 +27,7 @@ const RealVenda = ({ arraySales }) => {
   const [cliente, setCliente] = useState({
     label: "",
     value: "",
-    pagamento: "",
+    cnpj: "",
     cpf: "",
     telefone: "",
     nasc: "",
@@ -44,7 +44,6 @@ const RealVenda = ({ arraySales }) => {
     const rota = rotaViagem;
     const sale = [];
     const promisses = [];
-    const pagamento = cliente.pagamento;
     // eslint-disable-next-line
     selectedArrayProduct.map((item) => {
       const newProduct = {
@@ -52,7 +51,7 @@ const RealVenda = ({ arraySales }) => {
         name: item.label,
         vista: item.vista,
         prazo: item.prazo,
-        cheque: item.cheque,
+        viagem: item.viagem,
         quantidade: item.quantidade,
         compra: item.compra,
       };
@@ -60,11 +59,12 @@ const RealVenda = ({ arraySales }) => {
         name: item.label,
         quant: item.subtraiu,
         valor: pagamento.toLowerCase().includes("vista")
-          ? item.vista
+          ? item.alterado !== 0 ? item.alterado : item.vista
           : pagamento.toLowerCase().includes("prazo")
-          ? item.prazo
-          : item.cheque,
+          ? item.alterado !== 0 ? item.alterado : item.prazo
+          : item.alterado !== 0 ? item.alterado : item.prazo
       };
+      console.log(produto)
       sale.push(produto);
       promisses.push(Axios.put("http://localhost:5000/item/item", newProduct));
     });
@@ -85,7 +85,7 @@ const RealVenda = ({ arraySales }) => {
         response.data.map((data) => ({
           label: data.name,
           value: data.id,
-          pagamento: data.pagamento,
+          cnpj: data.cnpj,
           cpf: data.cpf,
           telefone: data.telefone,
           email: data.email,
@@ -104,7 +104,7 @@ const RealVenda = ({ arraySales }) => {
           quantidade: data.quantidade,
           vista: data.vista,
           prazo: data.prazo,
-          cheque: data.cheque,
+          viagem: data.viagem,
           compra: data.compra,
         }))
       );
@@ -112,65 +112,76 @@ const RealVenda = ({ arraySales }) => {
   }, []);
 
   return (
-    <DivPrincipal>
+    <>
       <Loading className={viewLoading}>Carregando...</Loading>
-      <DivSearch>
-        <Label text="Procurar Cliente" />
-        <Select
-          options={arrayClients}
-          isSearchable={true}
-          onChange={(cliente) => setCliente(cliente)}
+      <DivPrincipal className={viewLoading}>
+        <DivSearch>
+          <Label text="Procurar Cliente" />
+          <Select
+            options={arrayClients}
+            isSearchable={true}
+            onChange={(cliente) => setCliente(cliente)}
+          />
+        </DivSearch>
+        <ClientInfo>
+          <Pagamento>
+            <label>Pagamento</label>
+            <select onChange={(e) => setPagamento(e.target.value)}>
+              <option>A vista</option>
+              <option>A prazo</option>
+              <option>Viagem</option>
+            </select>
+          </Pagamento>
+          <OnlyRead valor={cliente.cidade} text="Cidade" />
+          <OnlyRead valor={cliente.rua} text="Rua" />
+          <OnlyRead valor={cliente.numerocasa} text="Nº da casa" />
+          <InputMask valor={cliente.telefone} text="Telefone p/ contato" />
+          <InputMask valor={cliente.cpf} text="CPF" />
+        </ClientInfo>
+        <Rota
+          placeholder="Rota de viagem"
+          onChange={(e) => setRotaViagem(e.target.value)}
         />
-      </DivSearch>
-      <ClientInfo>
-        <OnlyRead valor={cliente.pagamento} text="Forma de Pagamento" />
-        <OnlyRead valor={cliente.cidade} text="Cidade" />
-        <OnlyRead valor={cliente.rua} text="Rua" />
-        <OnlyRead valor={cliente.numerocasa} text="Nº da casa" />
-        <InputMask valor={cliente.telefone} text="Telefone p/ contato" />
-        <InputMask valor={cliente.cpf} text="CPF" />
-      </ClientInfo>
-      <Rota
-        placeholder="Rota de viagem"
-        onChange={(e) => setRotaViagem(e.target.value)}
-      />
-      <AddItem>
+        {/* <AddItem> */}
         <Select
           options={arrayItens}
-          onChange={(produto) => setSelectedProduct(produto)}
+          onChange={(produto) =>
+            setSelectedArrayProduct([...selectedArrayProduct, produto])
+          }
           className="selecionarItem"
         />
-        <button
+        {/* <button
           disabled={!selectedProduct || !cliente.label}
           onClick={() => {
             setSelectedArrayProduct([...selectedArrayProduct, selectedProduct]);
           }}
         >
           Adicionar Item
-        </button>
-      </AddItem>
-      <LabelInfo />
-      {selectedArrayProduct.map((data, i) => (
-        <ItemAdded
-          selectedArrayProduct={selectedArrayProduct}
-          setSelectedArrayProduct={setSelectedArrayProduct}
-          key={i}
-          item={data}
-          pagamento={cliente.pagamento.toLowerCase()}
-          setApprovedSale={setApprovedSale}
-        />
-      ))}
-      {selectedArrayProduct.length ? (
-        <FinishSale
-          disabled={!approvedSale || !cliente.label || !rotaViagem}
-          onClick={() => finalizarVenda()}
-        >
-          Concluir
-        </FinishSale>
-      ) : (
-        ""
-      )}
-    </DivPrincipal>
+        </button> */}
+        {/* </AddItem> */}
+        <LabelInfo />
+        {selectedArrayProduct.map((data, i) => (
+          <ItemAdded
+            selectedArrayProduct={selectedArrayProduct}
+            setSelectedArrayProduct={setSelectedArrayProduct}
+            key={data.label}
+            item={data}
+            pagamento={pagamento.toLowerCase()}
+            setApprovedSale={setApprovedSale}
+          />
+        ))}
+        {selectedArrayProduct.length ? (
+          <FinishSale
+            disabled={!approvedSale || !cliente.label || !rotaViagem}
+            onClick={() => finalizarVenda()}
+          >
+            Concluir
+          </FinishSale>
+        ) : (
+          ""
+        )}
+      </DivPrincipal>
+    </>
   );
 };
 

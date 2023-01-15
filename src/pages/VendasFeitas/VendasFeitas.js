@@ -31,7 +31,7 @@ const VendasFeitas = ({ arraySales }) => {
         setFinish={setFinish}
       />
 
-      {filterList.slice(start, finish).map((value) => (
+      {filterList.reverse().slice(start, finish).map((value) => (
         <ViewSales
           key={"venda" + value.id}
           idVenda={value.id}

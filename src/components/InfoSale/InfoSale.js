@@ -1,20 +1,20 @@
 import * as React from "react";
-import Dialog from "@mui/material/Dialog";
 import IconButton from "@mui/material/IconButton";
 import Slide from "@mui/material/Slide";
-import Divider from "@mui/material/Divider";
-// import GerarPDF from "../GerarPDF/GerarPDF";
+import Bag from "../../assets/Bag - PNG.png";
+import Dialog from "@mui/material/Dialog";
+import GerarPDF from "../GerarPDF/GerarPDF";
+import GerarPDF2 from "../GerarPDF/GerarPDF2";
 
 import Axios from "axios";
 import {
   ListUI,
   TypographyUI,
-  ListItemTextUI,
   ListItemTextValor,
   ToolbarUI,
   CloseIconUI,
-  // ButtonUI,
-  DivASS,
+  Infos,
+  ButtonUI,
 } from "./Styled";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -65,48 +65,56 @@ export default function FullScreenDialog({
       onClose={handleClose}
       TransitionComponent={Transition}
     >
-      <div>
-        <ToolbarUI>
-          <IconButton
-            edge="start"
-            color="inherit"
-            onClick={handleClose}
-            aria-label="close"
-          >
-            <CloseIconUI />
-          </IconButton>
-          <TypographyUI sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-            {name} - {dateSale} - Rota: {venda.rota ? venda.rota : ""}
-          </TypographyUI>
-          {/* <ButtonUI
-            onClick={() =>
-              GerarPDF(name, dateSale, cpf, formaPagamento, venda)
-            }
-          >
-            Imprimir
-          </ButtonUI> */}
-        </ToolbarUI>
-      </div>
+      <ToolbarUI>
+        <IconButton
+          edge="start"
+          color="inherit"
+          onClick={handleClose}
+          aria-label="close"
+        >
+          <CloseIconUI />
+        </IconButton>
+        <TypographyUI sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+          <img src={Bag} alt="" />
+          Geraldo Henrique Vendas {dateSale}
+        </TypographyUI>
+        <ButtonUI
+          onClick={() => {
+            GerarPDF(name, dateSale, formaPagamento, venda);
+            GerarPDF2(name, dateSale, formaPagamento, venda);
+          }}
+        >
+          Imprimir
+        </ButtonUI>
+      </ToolbarUI>
       <ListUI>
+        <Infos>
+          <p>Nome</p>
+          <p>Quantidade</p>
+          <p>Preço Unitário</p>
+          <p>Preço Total</p>
+        </Infos>
         {venda.items.map((item, i) => (
-          <div key={"item" + i}>
-            <ListItemTextUI
+          <Infos key={i}>
+            <p className="item">{item.name}</p>
+            <p className="item">{item.quant}</p>
+            <p className="item">{Number(item.valor).toFixed(2)}</p>
+            <p className="item">{Number(item.valor * item.quant).toFixed(2)}</p>
+            {/* <ListItemTextUI
               primary={item.name}
-              secondary={`Quantidade: ${
-                item.quant
-              } - Preço unitario: ${item.valor.toFixed(2)} - Preço total: ${(
-                item.valor * item.quant
-              ).toFixed(2)}`}
-            />
-            <Divider />
-          </div>
+              secondary={`Quantidade: ${item.quant} - Preço unitario: ${Number(
+                item.valor
+              ).toFixed(2)} - Preço total: ${(item.valor * item.quant).toFixed(
+                2
+              )}`}
+            /> */}
+          </Infos>
         ))}
         <ListItemTextValor
           primary={`Total: ${definePreco(venda)}`}
           secondary={formaPagamento}
         />
       </ListUI>
-      <DivASS>Assinado no nome de {name}</DivASS>
     </Dialog>
   );
 }

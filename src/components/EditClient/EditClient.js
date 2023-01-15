@@ -11,7 +11,7 @@ const EditClient = ({
   setOpen,
   open,
   nome,
-  pagamento,
+  cnpj,
   cpf,
   telefone,
   email,
@@ -24,7 +24,7 @@ const EditClient = ({
   thirdIndi,
 }) => {
   const [editName, setEditName] = useState(nome);
-  const [editPagamento, setEditPagamento] = useState(pagamento);
+  const [editCnpj, setEditCnpj] = useState(cnpj);
   const [editCpf, setEditCpf] = useState(cpf);
   const [editTelefone, setEditTelefone] = useState(telefone);
   const [editEmail, setEditEmail] = useState(email);
@@ -39,7 +39,7 @@ const EditClient = ({
     Axios.put("http://localhost:5000/client/client", {
       id: id,
       name: editName,
-      pagamento: editPagamento,
+      cnpj: editCnpj,
       cpf: editCpf,
       telefone: editTelefone,
       email: editEmail,
@@ -76,16 +76,16 @@ const EditClient = ({
           }}
         />
         <TextField
-          defaultValue={pagamento}
+          defaultValue={cnpj}
           autoFocus
           margin="dense"
-          id="pagamentoCliente"
-          label="Tipo de Pagamento"
+          id="cnpjCliente"
+          label="Cnpj"
           type="text"
           fullWidth
           variant="standard"
           onChange={(e) => {
-            setEditPagamento(e.target.value);
+            setEditCnpj(e.target.value);
           }}
         />
         <TextField

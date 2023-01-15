@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { FaTrash, FaPencilAlt } from "react-icons/fa";
 
 export const DivPrincipal = styled.div`
   min-height: 81.75vh;
@@ -22,8 +21,10 @@ export const Content = styled.div`
 export const InfoID = styled.div`
   border-right: 2px solid white;
   height: 100%;
+  width: 6rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0 9px;
 `;
 
@@ -93,28 +94,4 @@ export const FormSearch = styled.div`
     background-size: 1.7rem;
     background-position: 98%;
   }
-`;
-
-export const DivProduct = styled.div`
-  width: 80%;
-  border: 2px solid white;
-  height: 2.5rem;
-  border-radius: 10px;
-  align-items: center;
-  display: flex;
-  gap: 10px;
-  padding: 0 10px;
-`;
-
-export const FaTrashIcon = styled(FaTrash)`
-  height: 100%;
-  border-right: 2px solid white;
-  padding-right: 10px;
-  color: #aa0000;
-  cursor: pointer;
-`;
-
-export const FaPencilAltIcon = styled(FaPencilAlt)`
-  height: 100%;
-  cursor: pointer;
 `;

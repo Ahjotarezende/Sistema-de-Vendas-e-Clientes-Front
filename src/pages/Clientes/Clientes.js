@@ -43,7 +43,7 @@ const Clientes = ({ clientList, setClientList }) => {
           key={"cliente" + value.id}
           clientID={value.id}
           name={value.name}
-          pagamento={value.pagamento}
+          cnpj={value.cnpj}
           cpf={value.cpf}
           telefone={value.telefone}
           email={value.email}

@@ -13,7 +13,7 @@ import DeletClient from "../DeletClient/DeletClient";
 const ViewData = ({
   clientID,
   name,
-  pagamento,
+  cnpj,
   cpf,
   telefone,
   email,
@@ -48,7 +48,7 @@ const ViewData = ({
         id={clientID}
         open={open}
         nome={name}
-        pagamento={pagamento}
+        cnpj={cnpj}
         cpf={cpf}
         telefone={telefone}
         email={email}

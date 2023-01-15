@@ -87,17 +87,17 @@ export const TextID = styled.p`
   font-weight: 700;
 `;
 
-export const TextValor = styled.p`
+export const TextValor = styled.input`
   display: flex;
+  text-align: center;
+  font-size: 1rem;
   margin-left: 0.4rem;
-  display: flex;
-  align-items: center;
   color: white;
   border-left: 2px solid white;
   border-right: 2px solid white;
   width: 4.8rem;
-  justify-content: center;
   font-weight: 700;
+  background: none;
 `;
 
 export const TextValorFinal = styled.p`

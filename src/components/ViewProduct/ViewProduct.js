@@ -19,7 +19,7 @@ const ViewProduct = ({
   priceTerm,
   name,
   quant,
-  priceCheque,
+  priceViagem,
   precoCompra,
 }) => {
   const [open, setOpen] = React.useState(false);
@@ -50,7 +50,7 @@ const ViewProduct = ({
         quant={quant}
         precoVista={price}
         precoPrazo={priceTerm}
-        precoCheque={priceCheque}
+        precoViagem={priceViagem}
       />
       <DataID>{productID}</DataID>
       <DivData>

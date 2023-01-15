@@ -21,7 +21,7 @@ const CadItem = ({ productList }) => {
   const [finish, setFinish] = useState();
   const [valorCompra, setValorCompra] = useState();
   const [valorVista, setValorVista] = useState();
-  const [valorCheque, setValorCheque] = useState();
+  const [valorViagem, setValorViagem] = useState();
   const [valorPrazo, setValorPrazo] = useState();
   const [quant, setQuant] = useState();
 
@@ -65,7 +65,7 @@ const CadItem = ({ productList }) => {
           setFinish={setFinish}
           register={register}
           setValor={setValorVista}
-          textLabel="Valor de Venda"
+          textLabel="Valor de Venda - A vista"
           type="number"
           step="0.01"
           min="0.00"
@@ -86,12 +86,12 @@ const CadItem = ({ productList }) => {
           setStart={setStart}
           setFinish={setFinish}
           register={register}
-          setValor={setValorCheque}
-          textLabel="Valor de Venda - Cheque"
+          setValor={setValorViagem}
+          textLabel="Valor de Venda - Viagem"
           type="number"
           step="0.01"
           min="0.00"
-          name="cheque"
+          name="viagem"
         />
         <Button type="submit" text="Cadastrar!" />
       </ContainerValores>

@@ -1,10 +1,44 @@
 import styled from "styled-components";
 
 export const DivPrincipal = styled.div`
+  &.none {
+    min-height: 81.75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+  }
   min-height: 81.75%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0.5;
+  .selecionarItem {
+    margin-top: 1rem;
+    width: 80%;
+  }
+`;
+
+export const Pagamento = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  label {
+    color: white;
+    font-size: 1.2rem;
+  }
+  select {
+    option{
+      background-color: lightblue;
+      color: black;
+    }
+    color: white;
+    font-size: 1rem;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: 0.5rem;
+    height: 100%;
+  }
 `;
 
 export const DivSearch = styled.div`
@@ -14,29 +48,6 @@ export const DivSearch = styled.div`
   flex-direction: column;
   gap: 0.3rem;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
-`;
-
-export const AddItem = styled.div`
-  margin-top: 1rem;
-  display: flex;
-  width: 80%;
-  justify-content: space-between;
-  gap: 1rem;
-  .selecionarItem {
-    width: 100%;
-  }
-  button {
-    background-image: linear-gradient(to bottom, #e5e5e5, #a2a2a2);
-    color: black;
-    border: 2px solid black;
-    border-radius: 7px;
-    font-family: "Nunito", sans-serif;
-    cursor: pointer;
-    font-weight: 700;
-    &:hover {
-      color: white;
-    }
-  }
 `;
 
 export const ClientInfo = styled.div`
@@ -76,19 +87,25 @@ export const Rota = styled.input`
   border: 2px solid white;
   color: white;
   border-radius: 0.5rem;
+  &:placeholder-shown {
+    border-color: red;
+  }
   &::placeholder {
     color: white;
   }
 `;
 
 export const Loading = styled.div`
-  background-color: darkgreen;
+  background-image: linear-gradient(to bottom, darkgreen, green);
   width: 100%;
   height: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
+  position: absolute;
+  top: 40%;
+  z-index: 1;
   &.none {
     display: none;
   }

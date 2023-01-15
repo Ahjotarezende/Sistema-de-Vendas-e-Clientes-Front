@@ -18,8 +18,9 @@ export const ListaPage = styled.li`
     background-color: lightblue;
   }
   &.pageActive${(props) => props.page} {
-    border: 2px solid black;
-    color: black;
+    border: none;
+    border-bottom: 2px solid #4169e1;
+    color: #4169e1;
     font-weight: 700;
   }
 `;
