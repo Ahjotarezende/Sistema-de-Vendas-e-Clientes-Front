@@ -1,18 +1,14 @@
 import React from "react";
-import { DivLabel, IDInfo, FirstInfo, SecondInfo } from "./Styled";
+import { DivLabel, IDInfo, NameInfo, QuantInfo, CostInfo, FinalInfo } from "./Styled";
 
 const LabelInfo = () => {
   return (
     <DivLabel>
-      <FirstInfo>
         <IDInfo className="ID">ID</IDInfo>
-        <p className="Name">Nome</p>
-      </FirstInfo>
-      <SecondInfo>
-        <p className="Quant">Quant.</p>
-        <p className="UnitCost">Valor Uni.</p>
-        <p className="FinalCost">Valor Tot.</p>
-      </SecondInfo>
+        <NameInfo className="Name">Nome</NameInfo>
+        <QuantInfo className="Quant">Quant.</QuantInfo>
+        <CostInfo className="UnitCost">Valor Uni.</CostInfo>
+        <FinalInfo className="FinalCost">Valor Tot.</FinalInfo>
     </DivLabel>
   );
 };

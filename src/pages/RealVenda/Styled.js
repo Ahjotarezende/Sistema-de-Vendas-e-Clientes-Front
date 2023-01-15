@@ -17,6 +17,12 @@ export const DivPrincipal = styled.div`
     margin-top: 1rem;
     width: 80%;
   }
+  .openDiv{
+    z-index: -1;
+  }
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const Pagamento = styled.div`
@@ -26,9 +32,12 @@ export const Pagamento = styled.div`
   label {
     color: white;
     font-size: 1.2rem;
+    @media (max-width: 600px) {
+      font-size: 0.8rem;
+    }
   }
   select {
-    option{
+    option {
       background-color: lightblue;
       color: black;
     }
@@ -38,6 +47,9 @@ export const Pagamento = styled.div`
     background-color: transparent;
     border-radius: 0.5rem;
     height: 100%;
+    @media (max-width: 600px) {
+      font-size: 0.8rem;
+    }
   }
 `;
 

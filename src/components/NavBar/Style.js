@@ -1,5 +1,17 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { FaList } from "react-icons/fa";
+
+export const FaListUI = styled(FaList)`
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  color: white;
+  display: none;
+  @media (max-width: 600px) {
+    display: unset;
+  }
+`;
 
 export const Navegation = styled.nav`
   padding: 0 1rem;
@@ -12,6 +24,36 @@ export const Navegation = styled.nav`
   ul {
     display: flex;
     gap: 20px;
+  }
+  @media (max-width: 600px) {
+    .openDiv{
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2rem;
+      justify-content: start;
+      margin-top: 2rem;
+      margin-right: 3rem;
+    }
+    .notView {
+      display: none;
+    }
+    .view{
+      flex-direction: column;
+      height: 100%;
+    }
+    &.viewNav{
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      background-color: #f5f5f5;
+      opacity: 0.8;
+      .notViewImg{
+        display: none;
+      }
+    }
   }
 `;
 

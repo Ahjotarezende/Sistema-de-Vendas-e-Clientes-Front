@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Navegation, LinkPage, LinkImg } from "./Style";
+import { Navegation, LinkPage, LinkImg, FaListUI } from "./Style";
 import Bag from "../../assets/Bag - PNG.png";
 import BagBranca from "../../assets/Bag - Branca PNG.png";
 
-const NavBar = () => {
+const NavBar = ({ open, setOpen, openDiv, setOpenDiv, openNavegation, setOpenNavegation}) => {
   const [logo, setLogo] = useState(Bag);
 
   return (
-    <Navegation>
-      <LinkImg to="/">
+    <Navegation className={openNavegation}>
+      <LinkImg to="/" className="notViewImg">
         <img
           src={logo}
           alt="Logo da loja"
@@ -16,13 +16,27 @@ const NavBar = () => {
           onMouseLeave={() => setLogo(Bag)}
         />
       </LinkImg>
-      <ul>
-        <LinkPage to="/clientes">Clientes</LinkPage>
-        <LinkPage to="/vendasFeitas">Vendas</LinkPage>
-        <LinkPage to="/cadastrarCliente">Cad. Cliente</LinkPage>
-        <LinkPage to="/cadastrarItem">Cad. Item</LinkPage>
-        <LinkPage to="/realizarVenda">Real. Venda</LinkPage>
-      </ul>
+      <div className={openDiv}>
+        <FaListUI onClick={()=>{
+          if(open === "notView"){
+            setOpenDiv("openDiv")
+            setOpen("view")
+            setOpenNavegation("viewNav")
+          }
+          else{
+            setOpenDiv("")
+            setOpen("notView")
+            setOpenNavegation("")
+          }
+        }}/>
+        <ul className={open}>
+          <LinkPage to="/clientes">Clientes</LinkPage>
+          <LinkPage to="/vendasFeitas">Vendas</LinkPage>
+          <LinkPage to="/cadastrarCliente">Cad. Cliente</LinkPage>
+          <LinkPage to="/cadastrarItem">Cad. Item</LinkPage>
+          <LinkPage to="/realizarVenda">Real. Venda</LinkPage>
+        </ul>
+      </div>
     </Navegation>
   );
 };

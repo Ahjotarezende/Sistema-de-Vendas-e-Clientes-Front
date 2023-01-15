@@ -16,7 +16,7 @@ import Label from "../../components/Label/Label";
 import LabelInfo from "../../components/LabelInfo/LabelInfo";
 import ItemAdded from "../../components/ItemAdded/ItemAdded";
 
-const RealVenda = ({ arraySales }) => {
+const RealVenda = ({ arraySales, openDiv }) => {
   const [arrayClients, setArrayClients] = useState([{}]);
   const [arrayItens, setArrayItens] = useState([{}]);
   const [pagamento, setPagamento] = useState("A vista");
@@ -121,6 +121,7 @@ const RealVenda = ({ arraySales }) => {
             options={arrayClients}
             isSearchable={true}
             onChange={(cliente) => setCliente(cliente)}
+            className={openDiv}
           />
         </DivSearch>
         <ClientInfo>
@@ -135,7 +136,7 @@ const RealVenda = ({ arraySales }) => {
           <OnlyRead valor={cliente.cidade} text="Cidade" />
           <OnlyRead valor={cliente.rua} text="Rua" />
           <OnlyRead valor={cliente.numerocasa} text="Nº da casa" />
-          <InputMask valor={cliente.telefone} text="Telefone p/ contato" />
+          <InputMask valor={cliente.telefone} text="Telefone" />
           <InputMask valor={cliente.cpf} text="CPF" />
         </ClientInfo>
         <Rota
@@ -148,17 +149,8 @@ const RealVenda = ({ arraySales }) => {
           onChange={(produto) =>
             setSelectedArrayProduct([...selectedArrayProduct, produto])
           }
-          className="selecionarItem"
+          className={`selecionarItem ${openDiv}`}
         />
-        {/* <button
-          disabled={!selectedProduct || !cliente.label}
-          onClick={() => {
-            setSelectedArrayProduct([...selectedArrayProduct, selectedProduct]);
-          }}
-        >
-          Adicionar Item
-        </button> */}
-        {/* </AddItem> */}
         <LabelInfo />
         {selectedArrayProduct.map((data, i) => (
           <ItemAdded

@@ -14,6 +14,9 @@ const App = () => {
   const [arraySales, setArraySales] = useState([]);
   const [productList, setProductList] = useState([]);
   const [clientList, setClientList] = useState([]);
+  const [open, setOpen] = useState("notView")
+  const [openDiv, setOpenDiv] = useState("")
+  const [openNavegation, setOpenNavegation] = useState("")
 
   useEffect(() => {
     Axios.get("http://localhost:5000/sale/sale").then((response) => {
@@ -29,7 +32,7 @@ const App = () => {
   return (
     <>
       <Router>
-        <NavBar />
+        <NavBar open={open} setOpen={setOpen} openDiv={openDiv} setOpenDiv={setOpenDiv} openNavegation={openNavegation} setOpenNavegation={setOpenNavegation}/>
         <Routes>
           <Route
             exact
@@ -62,7 +65,7 @@ const App = () => {
           ></Route>
           <Route
             path="/realizarVenda"
-            element={<RealVenda arraySales={arraySales} />}
+            element={<RealVenda arraySales={arraySales} openDiv={openDiv}/>}
           ></Route>
         </Routes>
         <Footer />

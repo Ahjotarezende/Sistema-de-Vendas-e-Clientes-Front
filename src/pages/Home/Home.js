@@ -5,8 +5,6 @@ import {
   Content,
   FormSearch,
   DivInfo,
-  DivComum2,
-  DivComum,
   InfoID,
   InfoNome,
   InfoPrazo,
@@ -45,15 +43,11 @@ const Home = ({ productList }) => {
           />
         </FormSearch>
         <DivInfo>
-          <DivComum>
             <InfoID>ID</InfoID>
             <InfoNome>Nome</InfoNome>
-          </DivComum>
-          <DivComum2>
             <InfoQuant>Quant</InfoQuant>
             <InfoVista>A Vista</InfoVista>
             <InfoPrazo>A Prazo</InfoPrazo>
-          </DivComum2>
         </DivInfo>
         {filterList.slice(start, finish).map((value) => (
           <ViewProduct

@@ -1,7 +1,6 @@
 import React from "react";
 import {
   DivPrincipal,
-  DivData,
   DataID,
   FaTrashIcon,
   FaPencilAltIcon,
@@ -53,12 +52,10 @@ const ViewProduct = ({
         precoViagem={priceViagem}
       />
       <DataID>{productID}</DataID>
-      <DivData>
         <DataName>{name}</DataName>
         <DataQuant>{quant}</DataQuant>
         <DataPrice>{price}</DataPrice>
         <DataTerm>{priceTerm}</DataTerm>
-      </DivData>
       <FaTrashIcon
         onClick={() => {
           deletarProduto();

@@ -9,22 +9,65 @@ export const DivLabel = styled.div`
   color: white;
   align-items: center;
   margin-top: 1rem;
-  justify-content: space-between;
   .ID,
   .Quant,
   .UnitCost {
     border-right: 1.5px solid white;
   }
-  p {
-    padding: 0 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+`;
+
+export const IDInfo = styled.div`
+  width: 8%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 600px) {
+    display: none;
   }
 `;
 
-export const IDInfo = styled.p`
-  width: 1.5rem;
+export const NameInfo = styled.div`
+  width: 51%;
+  height: 100%;
+  display: flex;
+  margin-left: 1%;
+  justify-content: start;
+  align-items: center;
+  @media (max-width: 600px) {
+    width: 18%;
+  }
+`;
+export const QuantInfo = styled.div`
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 600px) {
+    width: 20%;
+  }
+`;
+export const CostInfo = styled.div`
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 600px) {
+    width: 20%
+  }
+`;
+
+export const FinalInfo = styled.div`
+  height: 100%;
+  margin-left: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 600px) {
+    /* display: none; */
+  }
 `;
 
 export const FirstInfo = styled.div`
@@ -35,5 +78,5 @@ export const FirstInfo = styled.div`
 export const SecondInfo = styled.div`
   display: flex;
   height: 100%;
-  margin-right: 4.6rem;
+  margin-right: 5%;
 `;

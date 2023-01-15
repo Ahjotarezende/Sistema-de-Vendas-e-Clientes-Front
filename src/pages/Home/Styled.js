@@ -7,6 +7,9 @@ export const DivPrincipal = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
+  @media(max-width: 600px){
+    font-size: 0.7rem;
+  }
 `;
 
 export const Content = styled.div`
@@ -19,55 +22,73 @@ export const Content = styled.div`
 `;
 
 export const InfoID = styled.div`
-  border-right: 2px solid white;
+  width: 4%;
   height: 100%;
-  width: 6rem;
+  color: white;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 9px;
+  border-right: 2px solid white;
+  @media(max-width:600px){
+    width: 8%;
+  }
 `;
 
 export const InfoNome = styled.div`
-  width: 100%;
-  height: 100%;
   display: flex;
+  width: 65%;
+  border-right: 2px solid white;
+  color: white;
+  margin-left: 0.3rem;
+  height: 100%;
   align-items: center;
-  padding-left: 10px;
+  @media(max-width:600px){
+    width: 35%;
+  }
 `;
 
 export const InfoQuant = styled.div`
-  height: 100%;
-  display: flex;
-  align-items: center;
+  width: 6%;
   border-right: 2px solid white;
-  padding-right: 10px;
+  color: white;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  @media(max-width:600px){
+    width: 10%;
+  }
 `;
 
 export const InfoVista = styled.div`
-  height: 100%;
-  display: flex;
-  align-items: center;
   border-right: 2px solid white;
-  padding: 0 10px;
+  color: white;
+  font-weight: 700;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  @media(max-width:600px){
+    width: 15%;
+  }
 `;
 
 export const InfoPrazo = styled.div`
-  height: 100%;
   display: flex;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  width: 10%;
+  height: 100%;
   align-items: center;
-  padding-left: 10px;
-`;
-
-export const DivComum = styled.div`
-  display: flex;
-  height: 100%;
-`;
-
-export const DivComum2 = styled.div`
-  display: flex;
-  height: 100%;
-  padding-right: 5.3rem;
+  border-right: 2px solid white;
+  margin-right: 7%;
+  @media(max-width:600px){
+    width: 15%;
+  }
 `;
 
 export const DivInfo = styled.div`
@@ -79,6 +100,9 @@ export const DivInfo = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 2rem;
+  @media(max-width:600px){
+    width: 95%;
+  }
 `;
 
 export const FormSearch = styled.div`

@@ -7,8 +7,6 @@ import {
   TextValorFinal,
   DeleteButton,
   TextName,
-  FirstDiv,
-  SecondDiv,
   ConfirmQuant,
 } from "./Styled";
 
@@ -27,7 +25,7 @@ const ItemAdded = ({
 }) => {
   const delProd = (op) => {
     if (classButton) {
-      op.alterado = 0
+      op.alterado = 0;
       op.quantidade += Number(quantidade);
       op.subtraiu = 0;
     }
@@ -37,12 +35,12 @@ const ItemAdded = ({
     setSelectedArrayProduct(newList);
   };
 
-  console.log(item)
+  console.log(item);
 
   const defineQuant = () => {
     item.quantidade -= quantidade;
     item["subtraiu"] = Number(quantidade);
-    value ? item['alterado'] = Number(value) : item['alterado'] = 0;
+    value ? (item["alterado"] = Number(value)) : (item["alterado"] = 0);
     setClassButton("green");
   };
 
@@ -55,20 +53,21 @@ const ItemAdded = ({
 
   return (
     <DivPrincipal>
-      <FirstDiv>
-        <TextID>{item.value}</TextID>
-        <TextName>{item.label}</TextName>
-      </FirstDiv>
-      <SecondDiv>
-        {quantidade ? quantidade > item.quantidade && !classButton ? (
-          <ErrorMessage>Você não tem essa quant. disponível</ErrorMessage>
+      <TextID>{item.value}</TextID>
+      <TextName>{item.label}</TextName>
+        {quantidade ? (
+          quantidade > item.quantidade && !classButton ? (
+            <ErrorMessage>Você não tem essa quant. disponível</ErrorMessage>
+          ) : (
+            <ConfirmQuant
+              className={classButton}
+              disabled={classButton}
+              onClick={() => defineQuant()}
+            ></ConfirmQuant>
+          )
         ) : (
-          <ConfirmQuant
-            className={classButton}
-            disabled={classButton}
-            onClick={() => defineQuant()}
-          ></ConfirmQuant>
-        ) : ""}
+          ""
+        )}
         <input
           className="quantProduto"
           type="number"
@@ -78,12 +77,14 @@ const ItemAdded = ({
             setQuantidade(e.target.value);
           }}
         />
-        <TextValor value={ value || (defineCost(pagamento, item)).toFixed(2)} onChange={(e)=>setValue(e.target.value)}/>
+        <TextValor
+          value={value || defineCost(pagamento, item).toFixed(2)}
+          onChange={(e) => setValue(e.target.value)}
+        />
         <TextValorFinal>
-          {(quantidade * ( value || defineCost(pagamento, item))).toFixed(2)}
+          {(quantidade * (value || defineCost(pagamento, item))).toFixed(2)}
         </TextValorFinal>
         <DeleteButton onClick={() => delProd(item)}>Deletar</DeleteButton>
-      </SecondDiv>
     </DivPrincipal>
   );
 };
