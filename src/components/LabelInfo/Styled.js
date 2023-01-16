@@ -65,9 +65,6 @@ export const FinalInfo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (max-width: 600px) {
-    /* display: none; */
-  }
 `;
 
 export const FirstInfo = styled.div`

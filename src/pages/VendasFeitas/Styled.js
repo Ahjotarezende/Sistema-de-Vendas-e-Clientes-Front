@@ -17,4 +17,7 @@ export const DivPrincipal = styled.div`
     width: 98%;
     height: 2rem;
   }
+  @media (max-width: 600px) {
+    min-height: 84.2vh;
+  }
 `;

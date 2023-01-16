@@ -92,7 +92,7 @@ export const ButtonUI = styled.button`
   font-weight: bold;
   border-radius: 1rem;
   border: none;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-image: url("https://img.icons8.com/stickers/100/null/export-pdf.png");
   background-repeat: no-repeat;
   background-size: 22px;

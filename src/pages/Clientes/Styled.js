@@ -6,6 +6,9 @@ export const DivPrincipal = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+  @media (max-width: 600px) {
+    min-height: 84.2vh;
+  }
 `;
 
 export const FormSearch = styled.div`

@@ -22,6 +22,7 @@ export const DivPrincipal = styled.div`
   }
   @media (max-width: 600px) {
     font-size: 0.8rem;
+    min-height: 84.2vh;
   }
 `;
 
@@ -73,7 +74,7 @@ export const ClientInfo = styled.div`
 
 export const FinishSale = styled.button`
   padding: 1rem;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: 700;
   color: white;
   background-image: linear-gradient(to top, #0f0, #0a0);

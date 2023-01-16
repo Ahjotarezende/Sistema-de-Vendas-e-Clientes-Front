@@ -9,6 +9,7 @@ export const DivPrincipal = styled.div`
   gap: 2rem;
   @media (max-width: 600px) {
     font-size: 0.7rem;
+    min-height: 84.2vh;
   }
 `;
 

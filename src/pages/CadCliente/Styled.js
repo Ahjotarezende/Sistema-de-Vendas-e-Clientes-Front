@@ -6,6 +6,9 @@ export const DivPrincipal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 600px) {
+    min-height: 84.2vh;
+  }
 `;
 
 export const ContainerValores = styled.form`
@@ -19,7 +22,7 @@ export const ContainerValores = styled.form`
   button {
     padding: 10px;
     cursor: pointer;
-    font-family: "Nunito", sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
     color: #4169e1;
