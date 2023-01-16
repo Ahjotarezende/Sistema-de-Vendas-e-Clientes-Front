@@ -36,7 +36,7 @@ const EditClient = ({
   const [editThirdIndi, setEditThirdIndi] = useState(thirdIndi);
 
   const handleCloseSalvar = () => {
-    Axios.put("http://localhost:5000/client/client", {
+    Axios.put("https://loja-geraldo-back.onrender.com/client/client", {
       id: id,
       name: editName,
       cnpj: editCnpj,

@@ -19,13 +19,13 @@ const App = () => {
   const [openNavegation, setOpenNavegation] = useState("")
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/sale/sale").then((response) => {
+    Axios.get("https://loja-geraldo-back.onrender.com/sale/sale").then((response) => {
       setArraySales(response.data);
     });
-    Axios.get("http://localhost:5000/item/item").then((response) => {
+    Axios.get("https://loja-geraldo-back.onrender.com/item/item").then((response) => {
       setProductList(response.data);
     });
-    Axios.get("http://localhost:5000/client/client").then((response) => {
+    Axios.get("https://loja-geraldo-back.onrender.com/client/client").then((response) => {
       setClientList(response.data);
     });
   }, []);

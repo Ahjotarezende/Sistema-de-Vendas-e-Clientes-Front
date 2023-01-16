@@ -66,10 +66,10 @@ const RealVenda = ({ arraySales, openDiv }) => {
       };
       console.log(produto)
       sale.push(produto);
-      promisses.push(Axios.put("http://localhost:5000/item/item", newProduct));
+      promisses.push(Axios.put("https://loja-geraldo-back.onrender.com/item/item", newProduct));
     });
     Axios.post(
-      `http://localhost:5000/sale/sale/${name}/${id}/${rota}/${pagamento}`,
+      `https://loja-geraldo-back.onrender.com/sale/sale/${name}/${id}/${rota}/${pagamento}`,
       sale
     );
     Promise.all(promisses);
@@ -80,7 +80,7 @@ const RealVenda = ({ arraySales, openDiv }) => {
   };
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/client/client").then((response) => {
+    Axios.get("https://loja-geraldo-back.onrender.com/client/client").then((response) => {
       setArrayClients(
         response.data.map((data) => ({
           label: data.name,
@@ -96,7 +96,7 @@ const RealVenda = ({ arraySales, openDiv }) => {
       );
     });
 
-    Axios.get("http://localhost:5000/item/item").then((response) => {
+    Axios.get("https://loja-geraldo-back.onrender.com/item/item").then((response) => {
       setArrayItens(
         response.data.map((data) => ({
           label: data.name,

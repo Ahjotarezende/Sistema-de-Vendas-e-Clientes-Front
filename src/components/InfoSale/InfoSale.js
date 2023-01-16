@@ -48,7 +48,7 @@ export default function FullScreenDialog({
   });
 
   React.useEffect(() => {
-    Axios.get(`http://localhost:5000/sale/sale/${id}`).then((response) => {
+    Axios.get(`https://loja-geraldo-back.onrender.com/sale/sale/${id}`).then((response) => {
       setVenda(response.data);
     });
   }, [id]);

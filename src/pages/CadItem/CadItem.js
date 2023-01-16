@@ -9,7 +9,7 @@ const CadItem = ({ productList }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     const id = productList.length + 1;
-    Axios.post(`http://localhost:5000/item/item/${id}`, data).then((response) =>
+    Axios.post(`https://loja-geraldo-back.onrender.com/item/item/${id}`, data).then((response) =>
       console.log(response)
     );
     document.location.reload();

@@ -30,7 +30,7 @@ const EditProduct = ({
   };
 
   const handleCloseSalvar = () => {
-    Axios.put("http://localhost:5000/item/item", {
+    Axios.put("https://loja-geraldo-back.onrender.com/item/item", {
       id: idProduto,
       name: editName,
       quantidade: editQuant,

@@ -19,7 +19,7 @@ const Clientes = ({ clientList, setClientList }) => {
   );
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/client/client").then((response) => {
+    Axios.get("https://loja-geraldo-back.onrender.com/client/client").then((response) => {
       setClientList(response.data);
     });
   }, [setClientList]);

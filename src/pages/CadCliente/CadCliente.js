@@ -10,7 +10,7 @@ const CadCliente = ({ clientList }) => {
 
   const onSubmit = (data) => {
     const id = clientList.length + 1;
-    Axios.post(`http://localhost:5000/client/client/${id}`, data).then(
+    Axios.post(`https://loja-geraldo-back.onrender.com/client/client/${id}`, data).then(
       (response) => console.log(response)
     );
     document.location.reload();

@@ -13,7 +13,7 @@ const DeletSale = ({ setOpenDelet, openDelet, name, id }) => {
   };
 
   const handleCloseDeletar = () => {
-    Axios.delete(`http://localhost:5000/sale/sale/${id}`);
+    Axios.delete(`https://loja-geraldo-back.onrender.com/sale/sale/${id}`);
     document.location.reload();
     setOpenDelet(false);
   };
