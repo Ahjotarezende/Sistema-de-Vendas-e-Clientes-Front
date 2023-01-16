@@ -59,56 +59,71 @@ const RealVenda = ({ arraySales, openDiv }) => {
         name: item.label,
         quant: item.subtraiu,
         valor: pagamento.toLowerCase().includes("vista")
-          ? item.alterado !== 0 ? item.alterado : item.vista
+          ? item.alterado !== 0
+            ? item.alterado
+            : item.vista
           : pagamento.toLowerCase().includes("prazo")
-          ? item.alterado !== 0 ? item.alterado : item.prazo
-          : item.alterado !== 0 ? item.alterado : item.prazo
+          ? item.alterado !== 0
+            ? item.alterado
+            : item.prazo
+          : item.alterado !== 0
+          ? item.alterado
+          : item.prazo,
       };
-      console.log(produto)
+      console.log(produto);
       sale.push(produto);
-      promisses.push(Axios.put("https://loja-geraldo-back.onrender.com/item/item", newProduct));
+      promisses.push(
+        Axios.put(
+          "https://loja-geraldo-back.onrender.com/item/item",
+          newProduct
+        )
+      );
     });
     Axios.post(
       `https://loja-geraldo-back.onrender.com/sale/sale/${name}/${id}/${rota}/${pagamento}`,
       sale
     );
     Promise.all(promisses);
+    alert("Salvando...");
     setTimeout(() => {
-      alert(`Finalizado`);
       document.location.reload();
     }, 3000);
   };
 
   useEffect(() => {
-    Axios.get("https://loja-geraldo-back.onrender.com/client/client").then((response) => {
-      setArrayClients(
-        response.data.map((data) => ({
-          label: data.name,
-          value: data.id,
-          cnpj: data.cnpj,
-          cpf: data.cpf,
-          telefone: data.telefone,
-          email: data.email,
-          cidade: data.cidade,
-          rua: data.rua,
-          numerocasa: data.numero,
-        }))
-      );
-    });
+    Axios.get("https://loja-geraldo-back.onrender.com/client/client").then(
+      (response) => {
+        setArrayClients(
+          response.data.map((data) => ({
+            label: data.name,
+            value: data.id,
+            cnpj: data.cnpj,
+            cpf: data.cpf,
+            telefone: data.telefone,
+            email: data.email,
+            cidade: data.cidade,
+            rua: data.rua,
+            numerocasa: data.numero,
+          }))
+        );
+      }
+    );
 
-    Axios.get("https://loja-geraldo-back.onrender.com/item/item").then((response) => {
-      setArrayItens(
-        response.data.map((data) => ({
-          label: data.name,
-          value: data.id,
-          quantidade: data.quantidade,
-          vista: data.vista,
-          prazo: data.prazo,
-          viagem: data.viagem,
-          compra: data.compra,
-        }))
-      );
-    });
+    Axios.get("https://loja-geraldo-back.onrender.com/item/item").then(
+      (response) => {
+        setArrayItens(
+          response.data.map((data) => ({
+            label: data.name,
+            value: data.id,
+            quantidade: data.quantidade,
+            vista: data.vista,
+            prazo: data.prazo,
+            viagem: data.viagem,
+            compra: data.compra,
+          }))
+        );
+      }
+    );
   }, []);
 
   return (

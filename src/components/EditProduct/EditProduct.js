@@ -40,7 +40,10 @@ const EditProduct = ({
       compra: editCompra,
     });
     setOpen(false);
-    document.location.reload();
+    alert("Salvando...");
+    setTimeout(() => {
+      document.location.reload();
+    }, 3000);
   };
 
   return (

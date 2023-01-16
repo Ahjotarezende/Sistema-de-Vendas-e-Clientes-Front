@@ -10,7 +10,7 @@ export const DataID = styled.p`
   align-items: center;
   justify-content: center;
   border-right: 2px solid white;
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     width: 7%;
   }
 `;
@@ -23,7 +23,7 @@ export const DivPrincipal = styled.div`
   align-items: center;
   display: flex;
   padding: 0 10px;
-  @media(max-width:600px){
+  @media (max-width: 600px) {
     width: 90%;
   }
 `;
@@ -36,7 +36,7 @@ export const DataName = styled.p`
   margin-left: 0.3rem;
   height: 100%;
   align-items: center;
-  @media(max-width:600px){
+  @media (max-width: 600px) {
     width: 40%;
   }
 `;
@@ -50,7 +50,7 @@ export const DataPrice = styled.div`
   justify-content: center;
   height: 100%;
   align-items: center;
-  @media(max-width:600px){
+  @media (max-width: 600px) {
     width: 15%;
   }
 `;
@@ -64,7 +64,7 @@ export const DataQuant = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  @media(max-width:600px){
+  @media (max-width: 600px) {
     width: 10%;
   }
 `;
@@ -78,7 +78,7 @@ export const DataTerm = styled.div`
   height: 100%;
   align-items: center;
   border-right: 2px solid white;
-  @media(max-width:600px){
+  @media (max-width: 600px) {
     width: 15%;
   }
 `;
@@ -94,7 +94,7 @@ export const FaTrashIcon = styled(FaTrash)`
   &:hover {
     color: red;
   }
-  @media(max-width:600px){
+  @media (max-width: 600px) {
     margin: 0 7px;
   }
 `;

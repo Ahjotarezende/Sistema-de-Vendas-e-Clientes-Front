@@ -29,7 +29,7 @@ export const TextName = styled.p`
   color: white;
   font-weight: 700;
   margin-left: 1rem;
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     width: 20%;
   }
 `;
@@ -47,7 +47,7 @@ export const DeleteButton = styled.button`
     background-image: linear-gradient(red, red);
   }
   width: 10%;
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     width: 20%;
   }
 `;
@@ -61,7 +61,7 @@ export const ErrorMessage = styled.p`
   &.notView {
     display: none;
   }
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     display: none;
   }
 `;
@@ -84,7 +84,7 @@ export const TextID = styled.p`
   align-items: center;
   color: white;
   font-weight: 700;
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     display: none;
   }
 `;
@@ -100,7 +100,7 @@ export const TextValor = styled.input`
   width: 10%;
   font-weight: 700;
   background: none;
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     width: 20%;
   }
 `;
@@ -114,7 +114,7 @@ export const TextValorFinal = styled.p`
   width: 10%;
   justify-content: center;
   font-weight: 700;
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     width: 20%;
   }
 `;

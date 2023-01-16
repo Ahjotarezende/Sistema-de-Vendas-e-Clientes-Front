@@ -43,11 +43,11 @@ const Home = ({ productList }) => {
           />
         </FormSearch>
         <DivInfo>
-            <InfoID>ID</InfoID>
-            <InfoNome>Nome</InfoNome>
-            <InfoQuant>Quant</InfoQuant>
-            <InfoVista>A Vista</InfoVista>
-            <InfoPrazo>A Prazo</InfoPrazo>
+          <InfoID>ID</InfoID>
+          <InfoNome>Nome</InfoNome>
+          <InfoQuant>Quant</InfoQuant>
+          <InfoVista>A Vista</InfoVista>
+          <InfoPrazo>A Prazo</InfoPrazo>
         </DivInfo>
         {filterList.slice(start, finish).map((value) => (
           <ViewProduct

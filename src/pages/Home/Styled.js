@@ -7,7 +7,7 @@ export const DivPrincipal = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     font-size: 0.7rem;
   }
 `;
@@ -30,7 +30,7 @@ export const InfoID = styled.div`
   align-items: center;
   justify-content: center;
   border-right: 2px solid white;
-  @media(max-width:600px){
+  @media (max-width: 600px) {
     width: 8%;
   }
 `;
@@ -43,7 +43,7 @@ export const InfoNome = styled.div`
   margin-left: 0.3rem;
   height: 100%;
   align-items: center;
-  @media(max-width:600px){
+  @media (max-width: 600px) {
     width: 35%;
   }
 `;
@@ -57,7 +57,7 @@ export const InfoQuant = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  @media(max-width:600px){
+  @media (max-width: 600px) {
     width: 10%;
   }
 `;
@@ -71,7 +71,7 @@ export const InfoVista = styled.div`
   justify-content: center;
   height: 100%;
   align-items: center;
-  @media(max-width:600px){
+  @media (max-width: 600px) {
     width: 15%;
   }
 `;
@@ -86,7 +86,7 @@ export const InfoPrazo = styled.div`
   align-items: center;
   border-right: 2px solid white;
   margin-right: 7%;
-  @media(max-width:600px){
+  @media (max-width: 600px) {
     width: 15%;
   }
 `;
@@ -100,7 +100,7 @@ export const DivInfo = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 2rem;
-  @media(max-width:600px){
+  @media (max-width: 600px) {
     width: 95%;
   }
 `;

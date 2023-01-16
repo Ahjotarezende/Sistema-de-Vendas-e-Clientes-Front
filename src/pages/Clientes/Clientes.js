@@ -19,9 +19,11 @@ const Clientes = ({ clientList, setClientList }) => {
   );
 
   useEffect(() => {
-    Axios.get("https://loja-geraldo-back.onrender.com/client/client").then((response) => {
-      setClientList(response.data);
-    });
+    Axios.get("https://loja-geraldo-back.onrender.com/client/client").then(
+      (response) => {
+        setClientList(response.data);
+      }
+    );
   }, [setClientList]);
 
   return (

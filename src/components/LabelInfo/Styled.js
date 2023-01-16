@@ -55,7 +55,7 @@ export const CostInfo = styled.div`
   justify-content: center;
   align-items: center;
   @media (max-width: 600px) {
-    width: 20%
+    width: 20%;
   }
 `;
 

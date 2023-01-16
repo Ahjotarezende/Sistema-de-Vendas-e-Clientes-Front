@@ -14,7 +14,10 @@ const DeletProduct = ({ setOpenDelet, openDelet, name, id }) => {
 
   const handleCloseDeletar = () => {
     Axios.delete(`https://loja-geraldo-back.onrender.com/item/item/${id}`);
-    document.location.reload();
+    alert("Salvando...");
+    setTimeout(() => {
+      document.location.reload();
+    }, 3000);
     setOpenDelet(false);
   };
 

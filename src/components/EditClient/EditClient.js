@@ -51,7 +51,10 @@ const EditClient = ({
       thirdIndi: editThirdIndi,
     });
     setOpen(false);
-    document.location.reload();
+    alert("Salvando...");
+    setTimeout(() => {
+      document.location.reload();
+    }, 3000);
   };
 
   const handleClose = () => {

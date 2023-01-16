@@ -10,10 +10,14 @@ const CadCliente = ({ clientList }) => {
 
   const onSubmit = (data) => {
     const id = clientList.length + 1;
-    Axios.post(`https://loja-geraldo-back.onrender.com/client/client/${id}`, data).then(
-      (response) => console.log(response)
-    );
-    document.location.reload();
+    Axios.post(
+      `https://loja-geraldo-back.onrender.com/client/client/${id}`,
+      data
+    ).then((response) => console.log(response));
+    alert("Salvando...");
+    setTimeout(() => {
+      document.location.reload();
+    }, 3000);
   };
 
   /*eslint-disable*/

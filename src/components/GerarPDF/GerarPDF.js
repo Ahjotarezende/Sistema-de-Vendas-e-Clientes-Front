@@ -58,7 +58,7 @@ function GerarPDF(name, dateSale, formaPagamento, vendaList) {
                 alignment: "center",
                 bold: true,
                 fontSize: 13,
-                margin: [0,0,0,20]
+                margin: [0, 0, 0, 20],
               },
             ],
             [
@@ -67,7 +67,7 @@ function GerarPDF(name, dateSale, formaPagamento, vendaList) {
                 fontSize: 9,
                 margin: [0, 2, 0, 2],
               },
-            ]
+            ],
           ],
         },
         layout: "lightHorizontalLines",

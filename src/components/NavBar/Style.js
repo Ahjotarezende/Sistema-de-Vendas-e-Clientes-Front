@@ -26,7 +26,7 @@ export const Navegation = styled.nav`
     gap: 20px;
   }
   @media (max-width: 600px) {
-    .openDiv{
+    .openDiv {
       height: 100%;
       width: 100%;
       display: flex;
@@ -40,17 +40,17 @@ export const Navegation = styled.nav`
     .notView {
       display: none;
     }
-    .view{
+    .view {
       flex-direction: column;
       height: 100%;
     }
-    &.viewNav{
+    &.viewNav {
       position: absolute;
       width: 100vw;
       height: 100vh;
       background-color: #f5f5f5;
       opacity: 0.8;
-      .notViewImg{
+      .notViewImg {
         display: none;
       }
     }

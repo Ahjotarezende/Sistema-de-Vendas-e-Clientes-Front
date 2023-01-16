@@ -3,7 +3,14 @@ import { Navegation, LinkPage, LinkImg, FaListUI } from "./Style";
 import Bag from "../../assets/Bag - PNG.png";
 import BagBranca from "../../assets/Bag - Branca PNG.png";
 
-const NavBar = ({ open, setOpen, openDiv, setOpenDiv, openNavegation, setOpenNavegation}) => {
+const NavBar = ({
+  open,
+  setOpen,
+  openDiv,
+  setOpenDiv,
+  openNavegation,
+  setOpenNavegation,
+}) => {
   const [logo, setLogo] = useState(Bag);
 
   return (
@@ -17,18 +24,19 @@ const NavBar = ({ open, setOpen, openDiv, setOpenDiv, openNavegation, setOpenNav
         />
       </LinkImg>
       <div className={openDiv}>
-        <FaListUI onClick={()=>{
-          if(open === "notView"){
-            setOpenDiv("openDiv")
-            setOpen("view")
-            setOpenNavegation("viewNav")
-          }
-          else{
-            setOpenDiv("")
-            setOpen("notView")
-            setOpenNavegation("")
-          }
-        }}/>
+        <FaListUI
+          onClick={() => {
+            if (open === "notView") {
+              setOpenDiv("openDiv");
+              setOpen("view");
+              setOpenNavegation("viewNav");
+            } else {
+              setOpenDiv("");
+              setOpen("notView");
+              setOpenNavegation("");
+            }
+          }}
+        />
         <ul className={open}>
           <LinkPage to="/clientes">Clientes</LinkPage>
           <LinkPage to="/vendasFeitas">Vendas</LinkPage>

@@ -52,10 +52,10 @@ const ViewProduct = ({
         precoViagem={priceViagem}
       />
       <DataID>{productID}</DataID>
-        <DataName>{name}</DataName>
-        <DataQuant>{quant}</DataQuant>
-        <DataPrice>{price}</DataPrice>
-        <DataTerm>{priceTerm}</DataTerm>
+      <DataName>{name}</DataName>
+      <DataQuant>{quant}</DataQuant>
+      <DataPrice>{price}</DataPrice>
+      <DataTerm>{priceTerm}</DataTerm>
       <FaTrashIcon
         onClick={() => {
           deletarProduto();

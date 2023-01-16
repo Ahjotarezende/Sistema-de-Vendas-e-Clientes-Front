@@ -43,7 +43,7 @@ export const ListItemTextValor = styled(ListItemText)`
 
 export const ListUI = styled(List)`
   height: 100%;
-  page-break-before: always ;
+  page-break-before: always;
 `;
 
 export const Infos = styled.div`

@@ -55,36 +55,36 @@ const ItemAdded = ({
     <DivPrincipal>
       <TextID>{item.value}</TextID>
       <TextName>{item.label}</TextName>
-        {quantidade ? (
-          quantidade > item.quantidade && !classButton ? (
-            <ErrorMessage>Você não tem essa quant. disponível</ErrorMessage>
-          ) : (
-            <ConfirmQuant
-              className={classButton}
-              disabled={classButton}
-              onClick={() => defineQuant()}
-            ></ConfirmQuant>
-          )
+      {quantidade ? (
+        quantidade > item.quantidade && !classButton ? (
+          <ErrorMessage>Você não tem essa quant. disponível</ErrorMessage>
         ) : (
-          ""
-        )}
-        <input
-          className="quantProduto"
-          type="number"
-          min={1}
-          readOnly={classButton}
-          onChange={(e) => {
-            setQuantidade(e.target.value);
-          }}
-        />
-        <TextValor
-          value={value || defineCost(pagamento, item).toFixed(2)}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <TextValorFinal>
-          {(quantidade * (value || defineCost(pagamento, item))).toFixed(2)}
-        </TextValorFinal>
-        <DeleteButton onClick={() => delProd(item)}>Deletar</DeleteButton>
+          <ConfirmQuant
+            className={classButton}
+            disabled={classButton}
+            onClick={() => defineQuant()}
+          ></ConfirmQuant>
+        )
+      ) : (
+        ""
+      )}
+      <input
+        className="quantProduto"
+        type="number"
+        min={1}
+        readOnly={classButton}
+        onChange={(e) => {
+          setQuantidade(e.target.value);
+        }}
+      />
+      <TextValor
+        value={value || defineCost(pagamento, item).toFixed(2)}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <TextValorFinal>
+        {(quantidade * (value || defineCost(pagamento, item))).toFixed(2)}
+      </TextValorFinal>
+      <DeleteButton onClick={() => delProd(item)}>Deletar</DeleteButton>
     </DivPrincipal>
   );
 };

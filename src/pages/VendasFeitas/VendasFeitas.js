@@ -31,15 +31,18 @@ const VendasFeitas = ({ arraySales }) => {
         setFinish={setFinish}
       />
 
-      {filterList.reverse().slice(start, finish).map((value) => (
-        <ViewSales
-          key={"venda" + value.id}
-          idVenda={value.id}
-          name={value.name}
-          dateSale={value.data}
-          formaPagamento={value.pagamento}
-        />
-      ))}
+      {filterList
+        .reverse()
+        .slice(start, finish)
+        .map((value) => (
+          <ViewSales
+            key={"venda" + value.id}
+            idVenda={value.id}
+            name={value.name}
+            dateSale={value.data}
+            formaPagamento={value.pagamento}
+          />
+        ))}
 
       {filterList.length > 9 && (
         <Pagination

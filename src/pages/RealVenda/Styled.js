@@ -17,7 +17,7 @@ export const DivPrincipal = styled.div`
     margin-top: 1rem;
     width: 80%;
   }
-  .openDiv{
+  .openDiv {
     z-index: -1;
   }
   @media (max-width: 600px) {
