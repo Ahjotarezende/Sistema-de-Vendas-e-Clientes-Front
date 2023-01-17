@@ -21,8 +21,11 @@ const Login = () => {
   const onSubmit = (data) => {
     if (data.name === "geraldo" && data.pwd === "ghvendas2023") {
       localStorage.setItem("token", "token");
+      document.location.reload();
+    } else {
+      alert("Ops... Usuario incorreto!");
+      document.location.reload();
     }
-    document.location.reload();
   };
 
   return (
@@ -44,7 +47,7 @@ const Login = () => {
           register={register}
           setValor={setPwd}
           textLabel="Senha"
-          type="text"
+          type="password"
           name="pwd"
         />
         <Button type="submit">Login</Button>
