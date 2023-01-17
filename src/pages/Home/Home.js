@@ -26,11 +26,11 @@ const Home = ({ productList, setLogin }) => {
   const filterList = productList.filter((produto) =>
     produto.name.toLowerCase().includes(lowerSearch)
   );
-  
+
   /*eslint-disable*/
-  useEffect(()=>{
-    setLogin("")
-  })
+  useEffect(() => {
+    setLogin("");
+  });
 
   return (
     <DivPrincipal>

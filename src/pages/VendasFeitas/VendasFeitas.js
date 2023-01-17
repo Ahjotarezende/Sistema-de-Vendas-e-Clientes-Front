@@ -46,6 +46,7 @@ const VendasFeitas = ({ arraySales, setLogin }) => {
             name={value.name}
             dateSale={value.data}
             formaPagamento={value.pagamento}
+            rota={value.rota}
           />
         ))}
 

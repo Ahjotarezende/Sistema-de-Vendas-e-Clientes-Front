@@ -30,9 +30,9 @@ const CadItem = ({ productList, setLogin }) => {
   const [quant, setQuant] = useState();
 
   /*eslint-disable*/
-  useEffect(()=>{
-    setLogin("")
-  })
+  useEffect(() => {
+    setLogin("");
+  });
 
   return (
     <DivPrincipal>

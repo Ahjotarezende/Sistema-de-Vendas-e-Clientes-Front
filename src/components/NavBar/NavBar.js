@@ -10,7 +10,7 @@ const NavBar = ({
   setOpenDiv,
   openNavegation,
   setOpenNavegation,
-  login
+  login,
 }) => {
   const [logo, setLogo] = useState(Bag);
 

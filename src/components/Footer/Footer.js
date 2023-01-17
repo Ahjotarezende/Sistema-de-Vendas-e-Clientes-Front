@@ -9,7 +9,7 @@ const getData = () => {
   return date.getFullYear();
 };
 
-const Footer = ({login}) => {
+const Footer = ({ login }) => {
   const [logo, setLogo] = useState(LogoBrancaLoja);
 
   return (

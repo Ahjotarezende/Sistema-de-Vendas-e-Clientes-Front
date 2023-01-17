@@ -36,6 +36,7 @@ export default function FullScreenDialog({
   name,
   dateSale,
   formaPagamento,
+  rota,
 }) {
   const [venda, setVenda] = React.useState({
     items: [
@@ -82,8 +83,8 @@ export default function FullScreenDialog({
         </TypographyUI>
         <ButtonUI
           onClick={() => {
-            GerarPDF(name, dateSale, formaPagamento, venda);
-            GerarPDF2(name, dateSale, formaPagamento, venda);
+            GerarPDF(name, dateSale, formaPagamento, venda, rota);
+            GerarPDF2(name, dateSale, formaPagamento, venda, rota);
           }}
         >
           Imprimir
@@ -102,14 +103,6 @@ export default function FullScreenDialog({
             <p className="item">{item.quant}</p>
             <p className="item">{Number(item.valor).toFixed(2)}</p>
             <p className="item">{Number(item.valor * item.quant).toFixed(2)}</p>
-            {/* <ListItemTextUI
-              primary={item.name}
-              secondary={`Quantidade: ${item.quant} - Preço unitario: ${Number(
-                item.valor
-              ).toFixed(2)} - Preço total: ${(item.valor * item.quant).toFixed(
-                2
-              )}`}
-            /> */}
           </Infos>
         ))}
         <ListItemTextValor

@@ -20,7 +20,7 @@ const Clientes = ({ clientList, setClientList, setLogin }) => {
 
   /*eslint-disable*/
   useEffect(() => {
-    setLogin("")
+    setLogin("");
     Axios.get("https://loja-geraldo-back.onrender.com/client/client").then(
       (response) => {
         setClientList(response.data);

@@ -9,7 +9,7 @@ const definePreco = (items) => {
   return valor.toFixed(2);
 };
 
-function GerarPDF(name, dateSale, formaPagamento, vendaList) {
+function GerarPDF(name, dateSale, formaPagamento, vendaList, rota) {
   pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
   const dados = vendaList.items.map((produto) => {
@@ -73,7 +73,7 @@ function GerarPDF(name, dateSale, formaPagamento, vendaList) {
         layout: "lightHorizontalLines",
       },
       {
-        text: `Cliente: ${name} / Pagamento: ${formaPagamento}`,
+        text: `Cliente: ${name} / Pagamento: ${formaPagamento} / Rota: ${rota}`,
         fontSize: 13,
         bold: true,
         margin: [0, 20, 0, 30],

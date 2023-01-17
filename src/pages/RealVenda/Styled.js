@@ -74,7 +74,7 @@ export const ClientInfo = styled.div`
 
 export const FinishSale = styled.button`
   padding: 1rem;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 700;
   color: white;
   background-image: linear-gradient(to top, #0f0, #0a0);

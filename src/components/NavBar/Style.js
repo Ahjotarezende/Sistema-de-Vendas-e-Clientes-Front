@@ -25,7 +25,7 @@ export const Navegation = styled.nav`
     display: flex;
     gap: 20px;
   }
-  &.login{
+  &.login {
     display: none;
   }
   @media (max-width: 600px) {

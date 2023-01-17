@@ -7,11 +7,11 @@ import Axios from "axios";
 
 const CadCliente = ({ clientList, setLogin }) => {
   const { register, handleSubmit } = useForm();
-  
+
   /*eslint-disable*/
-  useEffect(()=>{
-    setLogin("")
-  })
+  useEffect(() => {
+    setLogin("");
+  });
 
   const onSubmit = (data) => {
     const id = clientList.length + 1;

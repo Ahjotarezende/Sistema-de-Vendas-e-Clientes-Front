@@ -22,7 +22,7 @@ export const ContainerValores = styled.form`
   button {
     padding: 10px;
     cursor: pointer;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
     color: #4169e1;

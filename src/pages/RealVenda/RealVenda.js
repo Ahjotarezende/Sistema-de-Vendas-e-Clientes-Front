@@ -44,7 +44,7 @@ const RealVenda = ({ arraySales, openDiv, setLogin }) => {
     const rota = rotaViagem;
     const sale = [];
     const promisses = [];
-      /*eslint-disable*/
+    /*eslint-disable*/
     selectedArrayProduct.map((item) => {
       const newProduct = {
         id: item.value,
@@ -70,7 +70,6 @@ const RealVenda = ({ arraySales, openDiv, setLogin }) => {
           ? item.alterado
           : item.prazo,
       };
-      console.log(produto);
       sale.push(produto);
       promisses.push(
         Axios.put(
@@ -91,7 +90,7 @@ const RealVenda = ({ arraySales, openDiv, setLogin }) => {
   };
 
   useEffect(() => {
-    setLogin("")
+    setLogin("");
     Axios.get("https://loja-geraldo-back.onrender.com/client/client").then(
       (response) => {
         setArrayClients(
