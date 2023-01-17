@@ -19,4 +19,7 @@ export const FooterPage = styled.footer`
   img {
     height: 100%;
   }
+  &.login{
+    display: none;
+  }
 `;

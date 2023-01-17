@@ -10,12 +10,13 @@ const NavBar = ({
   setOpenDiv,
   openNavegation,
   setOpenNavegation,
+  login
 }) => {
   const [logo, setLogo] = useState(Bag);
 
   return (
-    <Navegation className={openNavegation}>
-      <LinkImg to="/" className="notViewImg">
+    <Navegation className={`${openNavegation} ${login}`}>
+      <LinkImg to="/home" className="notViewImg">
         <img
           src={logo}
           alt="Logo da loja"

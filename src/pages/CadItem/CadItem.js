@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/Button/Button";
 import InputComp from "../../components/InputComp/InputComp";
 import { DivPrincipal, ContainerValores, DivForne } from "./Styled";
 import { useForm } from "react-hook-form";
 import Axios from "axios";
 
-const CadItem = ({ productList }) => {
+const CadItem = ({ productList, setLogin }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     const id = productList.length + 1;
@@ -28,6 +28,11 @@ const CadItem = ({ productList }) => {
   const [valorViagem, setValorViagem] = useState();
   const [valorPrazo, setValorPrazo] = useState();
   const [quant, setQuant] = useState();
+
+  /*eslint-disable*/
+  useEffect(()=>{
+    setLogin("")
+  })
 
   return (
     <DivPrincipal>

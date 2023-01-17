@@ -16,7 +16,7 @@ import Label from "../../components/Label/Label";
 import LabelInfo from "../../components/LabelInfo/LabelInfo";
 import ItemAdded from "../../components/ItemAdded/ItemAdded";
 
-const RealVenda = ({ arraySales, openDiv }) => {
+const RealVenda = ({ arraySales, openDiv, setLogin }) => {
   const [arrayClients, setArrayClients] = useState([{}]);
   const [arrayItens, setArrayItens] = useState([{}]);
   const [pagamento, setPagamento] = useState("A vista");
@@ -44,7 +44,7 @@ const RealVenda = ({ arraySales, openDiv }) => {
     const rota = rotaViagem;
     const sale = [];
     const promisses = [];
-    // eslint-disable-next-line
+      /*eslint-disable*/
     selectedArrayProduct.map((item) => {
       const newProduct = {
         id: item.value,
@@ -91,6 +91,7 @@ const RealVenda = ({ arraySales, openDiv }) => {
   };
 
   useEffect(() => {
+    setLogin("")
     Axios.get("https://loja-geraldo-back.onrender.com/client/client").then(
       (response) => {
         setArrayClients(

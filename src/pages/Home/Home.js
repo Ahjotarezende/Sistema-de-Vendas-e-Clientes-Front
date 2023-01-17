@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputComp from "../../components/InputComp/InputComp";
 import {
   DivPrincipal,
@@ -15,7 +15,7 @@ import { useForm } from "react-hook-form";
 import ViewProduct from "../../components/ViewProduct/ViewProduct.js";
 import Pagination from "../../components/Pagination/Pagination";
 
-const Home = ({ productList }) => {
+const Home = ({ productList, setLogin }) => {
   const { register } = useForm();
   const [searchItem, setSearchItem] = useState("");
   const [start, setStart] = useState(0);
@@ -26,6 +26,11 @@ const Home = ({ productList }) => {
   const filterList = productList.filter((produto) =>
     produto.name.toLowerCase().includes(lowerSearch)
   );
+  
+  /*eslint-disable*/
+  useEffect(()=>{
+    setLogin("")
+  })
 
   return (
     <DivPrincipal>

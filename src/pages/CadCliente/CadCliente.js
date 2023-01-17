@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/Button/Button";
 import InputComp from "../../components/InputComp/InputComp";
 import { DivPrincipal, ContainerValores } from "./Styled";
 import { useForm } from "react-hook-form";
 import Axios from "axios";
 
-const CadCliente = ({ clientList }) => {
+const CadCliente = ({ clientList, setLogin }) => {
   const { register, handleSubmit } = useForm();
+  
+  /*eslint-disable*/
+  useEffect(()=>{
+    setLogin("")
+  })
 
   const onSubmit = (data) => {
     const id = clientList.length + 1;

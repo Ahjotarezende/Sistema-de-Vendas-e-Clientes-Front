@@ -9,11 +9,11 @@ const getData = () => {
   return date.getFullYear();
 };
 
-const Footer = () => {
+const Footer = ({login}) => {
   const [logo, setLogo] = useState(LogoBrancaLoja);
 
   return (
-    <FooterPage>
+    <FooterPage className={login}>
       <img
         src={logo}
         alt="Logo da loja"

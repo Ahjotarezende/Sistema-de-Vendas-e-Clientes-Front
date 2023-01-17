@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DivPrincipal } from "./Styled";
 import InputComp from "../../components/InputComp/InputComp";
 import { useForm } from "react-hook-form";
 import ViewSales from "../../components/ViewSales/ViewSales";
 import Pagination from "../../components/Pagination/Pagination";
 
-const VendasFeitas = ({ arraySales }) => {
+const VendasFeitas = ({ arraySales, setLogin }) => {
   const [start, setStart] = useState(0);
   const [finish, setFinish] = useState(9);
   const [searchSale, setSearchSale] = useState("");
@@ -17,6 +17,11 @@ const VendasFeitas = ({ arraySales }) => {
   const filterList = arraySales.filter((venda) =>
     venda.name.toLowerCase().includes(lowerSearch)
   );
+
+  /*eslint-disable*/
+  useEffect(() => {
+    setLogin("");
+  });
 
   return (
     <DivPrincipal>

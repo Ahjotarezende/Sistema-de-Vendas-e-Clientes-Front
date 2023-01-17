@@ -6,7 +6,7 @@ import Axios from "axios";
 import ViewClient from "../../components/ViewClient/ViewClient.js";
 import Pagination from "../../components/Pagination/Pagination";
 
-const Clientes = ({ clientList, setClientList }) => {
+const Clientes = ({ clientList, setClientList, setLogin }) => {
   const { register } = useForm();
   const [searchClient, setSearchClient] = useState("");
   const [start, setStart] = useState(0);
@@ -18,7 +18,9 @@ const Clientes = ({ clientList, setClientList }) => {
     cliente.name.toLowerCase().includes(lowerSearch)
   );
 
+  /*eslint-disable*/
   useEffect(() => {
+    setLogin("")
     Axios.get("https://loja-geraldo-back.onrender.com/client/client").then(
       (response) => {
         setClientList(response.data);
