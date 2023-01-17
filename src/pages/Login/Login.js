@@ -19,7 +19,7 @@ const Login = () => {
   }, [navigate]);
 
   const onSubmit = (data) => {
-    if (data.name === "geraldo" && data.pwd === "200456") {
+    if (data.name === "Geraldo" && data.pwd === "200456") {
       localStorage.setItem("token", "token");
       document.location.reload();
     } else {
