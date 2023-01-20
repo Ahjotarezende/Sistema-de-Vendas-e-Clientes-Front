@@ -14,7 +14,8 @@ const CadCliente = ({ clientList, setLogin }) => {
   });
 
   const onSubmit = (data) => {
-    const id = clientList.length + 1;
+    const id =
+      clientList.length !== 0 ? clientList[clientList.length - 1].id + 1 : 1;
     Axios.post(
       `https://loja-geraldo-back.onrender.com/client/client/${id}`,
       data

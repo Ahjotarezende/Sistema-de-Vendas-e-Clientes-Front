@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import InputComp from "../../components/InputComp/InputComp";
 import { DivPrincipal, FormSearch } from "./Styled";
 import { useForm } from "react-hook-form";
-import Axios from "axios";
 import ViewClient from "../../components/ViewClient/ViewClient.js";
 import Pagination from "../../components/Pagination/Pagination";
 
@@ -21,12 +20,7 @@ const Clientes = ({ clientList, setClientList, setLogin }) => {
   /*eslint-disable*/
   useEffect(() => {
     setLogin("");
-    Axios.get("https://loja-geraldo-back.onrender.com/client/client").then(
-      (response) => {
-        setClientList(response.data);
-      }
-    );
-  }, [setClientList]);
+  }, []);
 
   return (
     <DivPrincipal>
@@ -44,7 +38,7 @@ const Clientes = ({ clientList, setClientList, setLogin }) => {
       </FormSearch>
       {filterList.slice(start, finish).map((value) => (
         <ViewClient
-          key={"cliente" + value.id}
+          key={value.id}
           clientID={value.id}
           name={value.name}
           cnpj={value.cnpj}

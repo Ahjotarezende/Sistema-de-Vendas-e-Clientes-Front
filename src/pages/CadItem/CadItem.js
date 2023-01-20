@@ -8,7 +8,8 @@ import Axios from "axios";
 const CadItem = ({ productList, setLogin }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    const id = productList.length + 1;
+    const id =
+      productList.length !== 0 ? productList[productList.length - 1].id + 1 : 1;
     Axios.post(
       `https://loja-geraldo-back.onrender.com/item/item/${id}`,
       data

@@ -61,13 +61,13 @@ const App = () => {
           setOpenNavegation={setOpenNavegation}
         />
         <Routes>
-          <Route exact path="/" element={<Login/>} />
+          <Route exact path="/" element={<Login />} />
           <Route
             exact
             path="/home"
             element={
               <PrivateRoute redirectTo="/">
-                <Home productList={productList}  setLogin={setLogin}/>
+                <Home productList={productList} setLogin={setLogin} />
               </PrivateRoute>
             }
           ></Route>
@@ -99,7 +99,7 @@ const App = () => {
             path="/cadastrarCliente"
             element={
               <PrivateRoute redirectTo="/">
-                <CadCliente clientList={clientList}  setLogin={setLogin}/>
+                <CadCliente clientList={clientList} setLogin={setLogin} />
               </PrivateRoute>
             }
           ></Route>
@@ -107,7 +107,7 @@ const App = () => {
             path="/cadastrarItem"
             element={
               <PrivateRoute redirectTo="/">
-                <CadItem productList={productList}  setLogin={setLogin}/>
+                <CadItem productList={productList} setLogin={setLogin} />
               </PrivateRoute>
             }
           ></Route>
@@ -115,12 +115,16 @@ const App = () => {
             path="/realizarVenda"
             element={
               <PrivateRoute redirectTo="/">
-                <RealVenda arraySales={arraySales} openDiv={openDiv}  setLogin={setLogin}/>
+                <RealVenda
+                  arraySales={arraySales}
+                  openDiv={openDiv}
+                  setLogin={setLogin}
+                />
               </PrivateRoute>
             }
           ></Route>
         </Routes>
-        <Footer login={login}/>
+        <Footer login={login} />
       </Router>
     </>
   );

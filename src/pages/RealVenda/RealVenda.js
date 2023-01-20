@@ -40,7 +40,8 @@ const RealVenda = ({ arraySales, openDiv, setLogin }) => {
   const finalizarVenda = () => {
     setViewLoading("");
     const name = cliente.label;
-    const id = arraySales.length + 1;
+    const id =
+      arraySales.length !== 0 ? arraySales[arraySales.length - 1].id + 1 : 1;
     const rota = rotaViagem;
     const sale = [];
     const promisses = [];
