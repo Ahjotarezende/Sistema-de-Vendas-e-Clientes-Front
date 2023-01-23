@@ -5,6 +5,7 @@ import Bag from "../../assets/Bag - PNG.png";
 import Dialog from "@mui/material/Dialog";
 import GerarPDF from "../GerarPDF/GerarPDF";
 import GerarPDF2 from "../GerarPDF/GerarPDF2";
+import GerarPDF3 from "../GerarPDF/GerarPDF3";
 
 import Axios from "axios";
 import {
@@ -16,6 +17,8 @@ import {
   Infos,
   ButtonUI,
 } from "./Styled";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -38,7 +41,7 @@ export default function FullScreenDialog({
   formaPagamento,
   rota,
 }) {
-  const [venda, setVenda] = React.useState({
+  const [venda, setVenda] = useState({
     items: [
       {
         name: "",
@@ -48,7 +51,9 @@ export default function FullScreenDialog({
     ],
   });
 
-  React.useEffect(() => {
+  const [viewPromissoria, setViewPromissoria] = useState(false);
+
+  useEffect(() => {
     Axios.get(`https://loja-geraldo-back.onrender.com/sale/sale/${id}`).then(
       (response) => {
         setVenda(response.data);
@@ -81,11 +86,20 @@ export default function FullScreenDialog({
           <img src={Bag} alt="" />
           Geraldo Henrique Vendas {dateSale}
         </TypographyUI>
+        <label htmlFor="test">Nota Promissoria</label>
+        <input
+          id="test"
+          type="checkbox"
+          onChange={(e) => setViewPromissoria(e.target.checked)}
+        />
         <ButtonUI
-          onClick={() => {
-            GerarPDF(name, dateSale, formaPagamento, venda, rota);
-            GerarPDF2(name, dateSale, formaPagamento, venda, rota);
-          }}
+          onClick={() =>
+            viewPromissoria
+              ? (GerarPDF(name, dateSale, formaPagamento, venda, rota),
+                GerarPDF2(name, dateSale, formaPagamento, venda, rota))
+              : (GerarPDF(name, dateSale, formaPagamento, venda, rota),
+                GerarPDF3(name, dateSale, formaPagamento, venda, rota))
+          }
         >
           Imprimir
         </ButtonUI>
