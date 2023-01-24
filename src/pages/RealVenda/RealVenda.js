@@ -159,7 +159,6 @@ const RealVenda = ({ arraySales, openDiv, setLogin }) => {
           placeholder="Rota de viagem"
           onChange={(e) => setRotaViagem(e.target.value)}
         />
-        {/* <AddItem> */}
         <Select
           options={arrayItens}
           onChange={(produto) =>

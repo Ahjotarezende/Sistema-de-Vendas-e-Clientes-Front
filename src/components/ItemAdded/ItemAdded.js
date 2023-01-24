@@ -35,8 +35,6 @@ const ItemAdded = ({
     setSelectedArrayProduct(newList);
   };
 
-  console.log(item);
-
   const defineQuant = () => {
     item.quantidade -= quantidade;
     item["subtraiu"] = Number(quantidade);
@@ -52,7 +50,9 @@ const ItemAdded = ({
   else setApprovedSale(false);
 
   return (
-    <DivPrincipal>
+    <DivPrincipal
+      className={String(quantidade > item.quantidade && !classButton)}
+    >
       <TextID>{item.value}</TextID>
       <TextName>{item.label}</TextName>
       {quantidade ? (

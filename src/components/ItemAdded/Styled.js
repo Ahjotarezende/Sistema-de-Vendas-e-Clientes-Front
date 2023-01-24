@@ -20,6 +20,9 @@ export const DivPrincipal = styled.div`
     color: white;
     margin: auto 0;
   }
+  &.true{
+    border: 2px solid red;
+  }
 `;
 
 export const TextName = styled.p`
@@ -30,7 +33,8 @@ export const TextName = styled.p`
   font-weight: 700;
   margin-left: 1rem;
   @media (max-width: 600px) {
-    width: 20%;
+    width: 25%;
+    font-size: 0.7rem;
   }
 `;
 
@@ -101,7 +105,8 @@ export const TextValor = styled.input`
   font-weight: 700;
   background: none;
   @media (max-width: 600px) {
-    width: 20%;
+    width: 15%;
+    font-size: 0.8rem;
   }
 `;
 

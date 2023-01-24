@@ -26,6 +26,12 @@ export const ToolbarUI = styled(Toolbar)`
   div {
     font-family: "Nunito", sans-serif;
   }
+  input {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const ListItemTextValor = styled(ListItemText)`
@@ -47,12 +53,12 @@ export const ListUI = styled(List)`
 `;
 
 export const Infos = styled.div`
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 700;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   border-bottom: 2px solid black;
-  height: 2rem;
+  padding: 0.5rem 0.2rem;
   &:nth-child(even) {
     background-color: lightgray;
   }
@@ -70,6 +76,12 @@ export const TypographyUI = styled(Typography)`
   align-items: center;
   img {
     width: 4rem;
+  }
+  @media (max-width: 600px) {
+    img {
+      width: 3rem;
+    }
+    font-size: 0.55rem !important;
   }
 `;
 
@@ -104,5 +116,14 @@ export const ButtonUI = styled.button`
   &:hover {
     background-color: black;
     color: white;
+  }
+  @media (max-width: 600px) {
+    height: 2rem;
+    width: 4.2rem;
+    border-radius: 0.3rem;
+    background-size: 15px;
+    font-size: 0.7rem;
+    background-position: 3rem;
+    padding: 5px;
   }
 `;

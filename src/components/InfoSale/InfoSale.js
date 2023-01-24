@@ -82,13 +82,13 @@ export default function FullScreenDialog({
         >
           <CloseIconUI />
         </IconButton>
-        <TypographyUI sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+        <TypographyUI sx={{ ml: 0, flex: 1 }} variant="h6" component="div">
           <img src={Bag} alt="" />
           Geraldo Henrique Vendas {dateSale}
         </TypographyUI>
-        <label htmlFor="test">Nota Promissoria</label>
+        <label htmlFor="notaPromissoria">Nota Promissoria</label>
         <input
-          id="test"
+          id="notaPromissoria"
           type="checkbox"
           onChange={(e) => setViewPromissoria(e.target.checked)}
         />
