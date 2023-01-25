@@ -6,21 +6,22 @@ export const DivPrincipal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: linear-gradient(to top, #232323, #00004a);
 `;
 
 export const FormLogin = styled.form`
   img {
     width: 5rem;
   }
-  background-image: linear-gradient(to top, #2a2a2a, #3d3d3d);
-  min-height: 20rem;
-  min-width: 22rem;
-  padding: 0 2rem;
+  background-image: linear-gradient(to top, #dedede);
+  max-height: 20rem;
+  max-width: 22rem;
+  padding: 0 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  gap: 1rem;
   align-items: center;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3), 10px 0px 20px rgba(0, 0, 0, 0.3);
   border-radius: 2rem;
 `;
 
