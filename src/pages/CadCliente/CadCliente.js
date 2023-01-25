@@ -146,7 +146,7 @@ const CadCliente = ({ clientList, setLogin }) => {
           type="text"
           name="thirdIndi"
         />
-        <Button type="submit" text="Cadastrar!" />
+        <Button type="submit" text="Cadastrar" />
       </ContainerValores>
     </DivPrincipal>
   );

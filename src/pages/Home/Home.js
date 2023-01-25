@@ -21,10 +21,10 @@ const Home = ({ productList, setLogin }) => {
   const [start, setStart] = useState(0);
   const [finish, setFinish] = useState(9);
 
-  const lowerSearch = searchItem.toLowerCase();
+  const lowerSearch = searchItem.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
   const filterList = productList.filter((produto) =>
-    produto.name.toLowerCase().includes(lowerSearch)
+    produto.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(lowerSearch)
   );
 
   /*eslint-disable*/

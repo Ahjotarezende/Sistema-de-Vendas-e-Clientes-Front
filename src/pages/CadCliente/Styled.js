@@ -12,13 +12,14 @@ export const DivPrincipal = styled.div`
 `;
 
 export const ContainerValores = styled.form`
-  border: 2px dashed white;
+  border: 4px inset #4169e1;
   border-radius: 8px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 25px;
   padding: 30px;
   width: 80%;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
   button {
     padding: 10px;
     cursor: pointer;

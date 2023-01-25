@@ -12,10 +12,10 @@ const VendasFeitas = ({ arraySales, setLogin }) => {
 
   const { register } = useForm();
 
-  const lowerSearch = searchSale.toLowerCase();
+  const lowerSearch = searchSale.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
   const filterList = arraySales.filter((venda) =>
-    venda.name.toLowerCase().includes(lowerSearch)
+    venda.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(lowerSearch)
   );
 
   /*eslint-disable*/

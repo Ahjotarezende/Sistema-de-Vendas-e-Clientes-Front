@@ -12,7 +12,7 @@ export const DivPrincipal = styled.div`
 `;
 
 export const ContainerValores = styled.form`
-  border: 2px dashed white;
+  border: 4px inset #4169e1;
   border-radius: 8px;
   display: flex;
   flex-direction: column;

@@ -23,6 +23,7 @@ export const DivPrincipal = styled.div`
   align-items: center;
   display: flex;
   padding: 0 10px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
   @media (max-width: 600px) {
     width: 90%;
   }

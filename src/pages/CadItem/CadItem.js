@@ -103,7 +103,7 @@ const CadItem = ({ productList, setLogin }) => {
           min="0.00"
           name="viagem"
         />
-        <Button type="submit" text="Cadastrar!" />
+        <Button type="submit" text="Cadastrar" />
       </ContainerValores>
     </DivPrincipal>
   );

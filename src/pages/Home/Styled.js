@@ -89,6 +89,7 @@ export const InfoPrazo = styled.div`
   margin-right: 7%;
   @media (max-width: 600px) {
     width: 15%;
+    margin-right: 15%;
   }
 `;
 
@@ -101,6 +102,7 @@ export const DivInfo = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 2rem;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
   @media (max-width: 600px) {
     width: 95%;
   }

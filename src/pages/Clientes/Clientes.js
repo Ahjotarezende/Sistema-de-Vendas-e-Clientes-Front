@@ -11,10 +11,10 @@ const Clientes = ({ clientList, setClientList, setLogin }) => {
   const [start, setStart] = useState(0);
   const [finish, setFinish] = useState(9);
 
-  const lowerSearch = searchClient.toLowerCase();
+  const lowerSearch = searchClient.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
   const filterList = clientList.filter((cliente) =>
-    cliente.name.toLowerCase().includes(lowerSearch)
+    cliente.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(lowerSearch)
   );
 
   /*eslint-disable*/
