@@ -48,6 +48,7 @@ const ItemAdded = ({
 
   if (classButton) setApprovedSale(true);
   else setApprovedSale(false);
+  console.log(value);
 
   return (
     <DivPrincipal
@@ -78,6 +79,7 @@ const ItemAdded = ({
         }}
       />
       <TextValor
+        type="number"
         value={value || defineCost(pagamento, item).toFixed(2)}
         onChange={(e) => setValue(e.target.value)}
       />

@@ -20,7 +20,7 @@ export const DivPrincipal = styled.div`
     color: white;
     margin: auto 0;
   }
-  &.true{
+  &.true {
     border: 2px solid red;
   }
 `;
@@ -94,6 +94,11 @@ export const TextID = styled.p`
 `;
 
 export const TextValor = styled.input`
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
   display: flex;
   text-align: center;
   font-size: 1rem;
