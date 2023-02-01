@@ -53,7 +53,7 @@ function GerarPDF(name, dateSale, formaPagamento, vendaList, rota) {
           body: [
             [
               {
-                text: `Geraldo Henrique - Data: ${dateSale}`,
+                text: `GH Vendas - Data: ${dateSale}`,
                 style: "tableHeader",
                 alignment: "center",
                 bold: true,
@@ -73,9 +73,12 @@ function GerarPDF(name, dateSale, formaPagamento, vendaList, rota) {
         layout: "lightHorizontalLines",
       },
       {
-        text: `Cliente: ${name} / Pagamento: ${formaPagamento} / Rota: ${rota}`,
-        fontSize: 13,
         bold: true,
+        ul: [
+          `Cliente: ${name}`,
+          `Pagamento: ${formaPagamento}`,
+          `Rota: ${rota}`,
+        ],
         margin: [0, 20, 0, 30],
       },
       {

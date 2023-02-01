@@ -78,8 +78,7 @@ const RealVenda = ({ arraySales, openDiv, setLogin }) => {
         )
       );
     });
-    sale.push(rotaViagem)
-    console.log(sale);
+    sale.push(rotaViagem);
     Axios.post(
       `https://loja-geraldo-back.onrender.com/sale/sale/${name}/${id}/${pagamento}`,
       sale

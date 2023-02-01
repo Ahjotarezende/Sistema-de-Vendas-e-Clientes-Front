@@ -9,7 +9,7 @@ const definePreco = (items) => {
   return valor.toFixed(2);
 };
 
-function GerarPDF(name, dateSale, formaPagamento, vendaList, rota) {
+function GerarPDF(name, dateSale, formaPagamento, vendaList, rota, client) {
   pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
   const dados = vendaList.items.map((produto) => {
@@ -53,7 +53,7 @@ function GerarPDF(name, dateSale, formaPagamento, vendaList, rota) {
           body: [
             [
               {
-                text: `Geraldo Henrique - Data: ${dateSale}`,
+                text: `GH Vendas - Data: ${dateSale}`,
                 style: "tableHeader",
                 alignment: "center",
                 bold: true,
@@ -73,9 +73,16 @@ function GerarPDF(name, dateSale, formaPagamento, vendaList, rota) {
         layout: "lightHorizontalLines",
       },
       {
-        text: `Cliente: ${name} / Pagamento: ${formaPagamento} / Rota: ${rota}`,
-        fontSize: 13,
         bold: true,
+        ul: [
+          `Cliente: ${name}`,
+          `Telefone: ${client.telefone}`,
+          `Pagamento: ${formaPagamento}`,
+          `Rota: ${rota}`,
+          `CNPJ: ${client.cnpj}`,
+          `CPF: ${client.cpf}`,
+          `Endereço: ${client.rua}, ${client.numero} - ${client.cidade}`,
+        ],
         margin: [0, 20, 0, 30],
       },
       {
@@ -137,16 +144,71 @@ function GerarPDF(name, dateSale, formaPagamento, vendaList, rota) {
       {
         table: {
           headerRows: 1,
-          widths: ["*"],
+          widths: ["*", "*", 200, "*", "*"],
           body: [
             [
               {
                 alignment: "center",
-                border: [false, false, false, true],
-                text: `Ass. em nome de ${name}`,
+                text: "",
+                border: [false, false, false, false],
                 style: "tableHeader",
                 margin: [0, 50, 0, 35],
                 fontSize: 12,
+              },
+              {
+                alignment: "center",
+                text: "",
+                border: [false, false, false, false],
+                style: "tableHeader",
+                margin: [0, 50, 0, 35],
+                fontSize: 12,
+              },
+              {
+                alignment: "center",
+                border: [false, false, false, true],
+                text: `Santo Antônio do Monte - 2023`,
+                style: "tableHeader",
+                margin: [0, 50, 0, 35],
+                fontSize: 12,
+              },
+              {
+                alignment: "center",
+                text: "",
+                border: [false, false, false, false],
+                style: "tableHeader",
+                margin: [0, 50, 0, 35],
+                fontSize: 12,
+              },
+              {
+                alignment: "center",
+                text: "",
+                border: [false, false, false, false],
+                style: "tableHeader",
+                margin: [0, 50, 0, 35],
+                fontSize: 12,
+              },
+            ],
+            [
+              {
+                text: "",
+                border: [false, false, false, false],
+              },
+              {
+                text: "",
+                border: [false, false, false, false],
+              },
+              {
+                text: `${name}`,
+                alignment: "center",
+                border: [false, false, false, false],
+              },
+              {
+                text: "",
+                border: [false, false, false, false],
+              },
+              {
+                text: "",
+                border: [false, false, false, false],
               },
             ],
           ],

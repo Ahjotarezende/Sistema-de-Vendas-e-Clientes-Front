@@ -88,6 +88,7 @@ const App = () => {
             element={
               <PrivateRoute redirectTo="/">
                 <VendasFeitas
+                  clientList={clientList}
                   arraySales={arraySales}
                   setArraySales={setArraySales}
                   setLogin={setLogin}

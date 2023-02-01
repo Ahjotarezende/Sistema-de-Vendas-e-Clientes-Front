@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import ViewSales from "../../components/ViewSales/ViewSales";
 import Pagination from "../../components/Pagination/Pagination";
 
-const VendasFeitas = ({ arraySales, setLogin }) => {
+const VendasFeitas = ({ arraySales, setLogin, clientList }) => {
   const [start, setStart] = useState(0);
   const [finish, setFinish] = useState(9);
   const [searchSale, setSearchSale] = useState("");
@@ -41,6 +41,7 @@ const VendasFeitas = ({ arraySales, setLogin }) => {
         .slice(start, finish)
         .map((value) => (
           <ViewSales
+            clientList={clientList}
             key={"venda" + value.id}
             idVenda={value.id}
             name={value.name}

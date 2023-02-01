@@ -48,7 +48,6 @@ const ItemAdded = ({
 
   if (classButton) setApprovedSale(true);
   else setApprovedSale(false);
-  console.log(value);
 
   return (
     <DivPrincipal

@@ -40,6 +40,7 @@ export default function FullScreenDialog({
   dateSale,
   formaPagamento,
   rota,
+  clientList,
 }) {
   const [venda, setVenda] = useState({
     items: [
@@ -50,7 +51,7 @@ export default function FullScreenDialog({
       },
     ],
   });
-
+  const [client, setClient] = useState();
   const [viewPromissoria, setViewPromissoria] = useState(false);
 
   useEffect(() => {
@@ -59,7 +60,11 @@ export default function FullScreenDialog({
         setVenda(response.data);
       }
     );
-  }, [id]);
+    /*eslint-disable*/
+    clientList.filter((client) => {
+      if (client.name === name) setClient(client);
+    });
+  }, [id, name]);
 
   const handleClose = () => {
     setOpen(false);
@@ -96,9 +101,9 @@ export default function FullScreenDialog({
           onClick={() =>
             viewPromissoria
               ? (GerarPDF(name, dateSale, formaPagamento, venda, rota),
-                GerarPDF2(name, dateSale, formaPagamento, venda, rota))
+                GerarPDF2(name, dateSale, formaPagamento, venda, rota, client))
               : (GerarPDF(name, dateSale, formaPagamento, venda, rota),
-                GerarPDF3(name, dateSale, formaPagamento, venda, rota))
+                GerarPDF3(name, dateSale, formaPagamento, venda, rota, client))
           }
         >
           Imprimir
