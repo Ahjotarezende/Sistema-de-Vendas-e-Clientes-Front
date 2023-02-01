@@ -36,7 +36,7 @@ const App = () => {
         setProductList(response.data);
       }
     );
-    Axios.get("http://192.168.1.126:5000/client/client").then(
+    Axios.get("https://loja-geraldo-back.onrender.com/client/client").then(
       (response) => {
         setClientList(response.data);
       }
