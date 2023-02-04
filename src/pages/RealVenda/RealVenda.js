@@ -40,8 +40,6 @@ const RealVenda = ({ arraySales, openDiv, setLogin }) => {
   const finalizarVenda = () => {
     setViewLoading("");
     const name = cliente.label;
-    const id =
-      arraySales.length !== 0 ? arraySales[arraySales.length - 1].id + 1 : 1;
     const sale = [];
     const promisses = [];
     /*eslint-disable*/
@@ -80,7 +78,7 @@ const RealVenda = ({ arraySales, openDiv, setLogin }) => {
     });
     sale.push(rotaViagem);
     Axios.post(
-      `https://loja-geraldo-back.onrender.com/sale/sale/${name}/${id}/${pagamento}`,
+      `https://loja-geraldo-back.onrender.com/sale/sale/${name}/${pagamento}`,
       sale
     );
     Promise.all(promisses);
