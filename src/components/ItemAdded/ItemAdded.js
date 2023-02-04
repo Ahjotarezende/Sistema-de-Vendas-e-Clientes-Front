@@ -22,13 +22,16 @@ const ItemAdded = ({
   setApprovedSale,
   setSelectedArrayProduct,
   selectedArrayProduct,
+  setArrayItens,
+  arrayItens,
 }) => {
   const delProd = (op) => {
     if (classButton) {
-      op.alterado = 0;
+      delete op.alterado;
+      delete op.subtraiu;
       op.quantidade += Number(quantidade);
-      op.subtraiu = 0;
     }
+    setArrayItens([...arrayItens, op]);
     const newList = selectedArrayProduct.filter((rdm) => {
       return rdm.label !== op.label;
     });

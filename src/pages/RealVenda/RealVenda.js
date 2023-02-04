@@ -87,7 +87,7 @@ const RealVenda = ({ arraySales, openDiv, setLogin }) => {
     alert("Salvando...");
     setTimeout(() => {
       document.location.reload();
-    }, 3000);
+    }, 5000);
   };
 
   useEffect(() => {
@@ -161,14 +161,19 @@ const RealVenda = ({ arraySales, openDiv, setLogin }) => {
         />
         <Select
           options={arrayItens}
-          onChange={(produto) =>
-            setSelectedArrayProduct([...selectedArrayProduct, produto])
-          }
+          onChange={(produto) => {
+            setArrayItens(
+              arrayItens.filter((item) => item.label !== produto.label)
+            );
+            setSelectedArrayProduct([...selectedArrayProduct, produto]);
+          }}
           className={`selecionarItem ${openDiv}`}
         />
         <LabelInfo />
         {selectedArrayProduct.map((data, i) => (
           <ItemAdded
+            setArrayItens={setArrayItens}
+            arrayItens={arrayItens}
             selectedArrayProduct={selectedArrayProduct}
             setSelectedArrayProduct={setSelectedArrayProduct}
             key={data.label}
