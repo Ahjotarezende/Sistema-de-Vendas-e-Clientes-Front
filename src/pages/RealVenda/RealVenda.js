@@ -68,7 +68,7 @@ const RealVenda = ({ arraySales, openDiv, setLogin }) => {
             : item.prazo
           : item.alterado !== 0
           ? item.alterado
-          : item.prazo,
+          : item.viagem,
       };
       sale.push(produto);
       promisses.push(
