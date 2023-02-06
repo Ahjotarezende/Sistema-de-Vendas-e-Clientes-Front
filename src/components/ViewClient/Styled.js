@@ -21,6 +21,7 @@ export const DivPrincipal = styled.div`
 export const DataName = styled.p`
   width: 100%;
   color: white;
+  font-size: 0.8em;
 `;
 
 export const DivData = styled.div`

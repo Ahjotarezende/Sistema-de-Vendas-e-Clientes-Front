@@ -66,8 +66,6 @@ export default function FullScreenDialog({
     });
   }, [id, name]);
 
-  console.log(venda)
-
   const handleClose = () => {
     setOpen(false);
     document.location.reload();

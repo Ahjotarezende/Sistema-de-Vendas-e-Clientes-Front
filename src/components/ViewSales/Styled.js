@@ -39,6 +39,7 @@ export const SaleName = styled.p`
   display: flex;
   align-items: center;
   padding: 0 10px;
+  font-size: 0.8em;
 `;
 
 export const FaTrashIcon = styled(FaTrash)`

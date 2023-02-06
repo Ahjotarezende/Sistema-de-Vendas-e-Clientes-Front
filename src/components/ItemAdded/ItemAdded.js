@@ -60,7 +60,14 @@ const ItemAdded = ({
       <TextName>{item.label}</TextName>
       {quantidade ? (
         quantidade > item.quantidade && !classButton ? (
-          <ErrorMessage>Você não tem essa quant. disponível</ErrorMessage>
+          <>
+            <ErrorMessage>Sem estoque. Lembre-se de atualizar!</ErrorMessage>
+            <ConfirmQuant
+              className={classButton}
+              disabled={classButton}
+              onClick={() => defineQuant()}
+            ></ConfirmQuant>
+          </>
         ) : (
           <ConfirmQuant
             className={classButton}
