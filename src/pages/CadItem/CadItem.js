@@ -9,12 +9,11 @@ const CadItem = ({ productList, setLogin }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     Axios.post("https://loja-geraldo-back.onrender.com/item/item", data).then(
-      (response) => console.log(response)
+      (response) => {
+        alert("Salvo com sucesso");
+        document.location.reload();
+      }
     );
-    alert("Salvando...");
-    setTimeout(() => {
-      document.location.reload();
-    }, 3000);
   };
 
   /*eslint-disable */

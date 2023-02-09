@@ -38,12 +38,11 @@ const EditProduct = ({
       prazo: editPrazo,
       viagem: editViagem,
       compra: editCompra,
+    }).then((res) => {
+      alert("Salvo com sucesso");
+      document.location.reload();
     });
     setOpen(false);
-    alert("Salvando...");
-    setTimeout(() => {
-      document.location.reload();
-    }, 3000);
   };
 
   return (

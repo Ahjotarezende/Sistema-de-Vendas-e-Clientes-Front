@@ -17,11 +17,10 @@ const CadCliente = ({ clientList, setLogin }) => {
     Axios.post(
       "https://loja-geraldo-back.onrender.com/client/client",
       data
-    ).then((response) => console.log(response));
-    alert("Salvando...");
-    setTimeout(() => {
+    ).then((response) => {
+      alert("Salvo com sucesso");
       document.location.reload();
-    }, 3000);
+    });
   };
 
   /*eslint-disable*/

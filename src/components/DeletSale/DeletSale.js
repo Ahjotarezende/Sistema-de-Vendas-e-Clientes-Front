@@ -13,11 +13,12 @@ const DeletSale = ({ setOpenDelet, openDelet, name, id }) => {
   };
 
   const handleCloseDeletar = () => {
-    Axios.delete(`https://loja-geraldo-back.onrender.com/sale/sale/${id}`);
-    alert("Salvando...");
-    setTimeout(() => {
-      document.location.reload();
-    }, 3000);
+    Axios.delete(`https://loja-geraldo-back.onrender.com/sale/sale/${id}`).then(
+      (res) => {
+        alert("Salvo com sucesso");
+        document.location.reload();
+      }
+    );
     setOpenDelet(false);
   };
 

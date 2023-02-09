@@ -49,12 +49,11 @@ const EditClient = ({
       firstIndi: editFirstIndi,
       secondIndi: editSecondIndi,
       thirdIndi: editThirdIndi,
+    }).then((res) => {
+      alert("Salvo com sucesso");
+      document.location.reload();
     });
     setOpen(false);
-    alert("Salvando...");
-    setTimeout(() => {
-      document.location.reload();
-    }, 3000);
   };
 
   const handleClose = () => {
