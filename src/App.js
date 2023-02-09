@@ -116,11 +116,7 @@ const App = () => {
             path="/realizarVenda"
             element={
               <PrivateRoute redirectTo="/">
-                <RealVenda
-                  arraySales={arraySales}
-                  openDiv={openDiv}
-                  setLogin={setLogin}
-                />
+                <RealVenda openDiv={openDiv} setLogin={setLogin} />
               </PrivateRoute>
             }
           ></Route>

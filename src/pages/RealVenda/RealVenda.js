@@ -16,7 +16,7 @@ import Label from "../../components/Label/Label";
 import LabelInfo from "../../components/LabelInfo/LabelInfo";
 import ItemAdded from "../../components/ItemAdded/ItemAdded";
 
-const RealVenda = ({ arraySales, openDiv, setLogin }) => {
+const RealVenda = ({ openDiv, setLogin }) => {
   const [arrayClients, setArrayClients] = useState([{}]);
   const [arrayItens, setArrayItens] = useState([{}]);
   const [pagamento, setPagamento] = useState("A vista");
@@ -81,11 +81,10 @@ const RealVenda = ({ arraySales, openDiv, setLogin }) => {
       `https://loja-geraldo-back.onrender.com/sale/sale/${name}/${pagamento}`,
       sale
     );
-    Promise.all(promisses);
-    alert("Salvando...");
-    setTimeout(() => {
+    Promise.all(promisses).then((res) => {
+      alert("Salvando...");
       document.location.reload();
-    }, 5000);
+    });
   };
 
   useEffect(() => {
