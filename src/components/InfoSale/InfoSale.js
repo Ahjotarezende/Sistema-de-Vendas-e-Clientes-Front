@@ -116,14 +116,20 @@ export default function FullScreenDialog({
           <p>Preço Unitário</p>
           <p>Preço Total</p>
         </Infos>
-        {venda.items.map((item, i) => (
-          <Infos key={i}>
-            <p className="item">{item.name}</p>
-            <p className="item">{item.quant}</p>
-            <p className="item">{Number(item.valor).toFixed(2)}</p>
-            <p className="item">{Number(item.valor * item.quant).toFixed(2)}</p>
-          </Infos>
-        ))}
+        {venda.items
+          .sort((a, b) => {
+            return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+          })
+          .map((item, i) => (
+            <Infos key={i}>
+              <p className="item">{item.name}</p>
+              <p className="item">{item.quant}</p>
+              <p className="item">{Number(item.valor).toFixed(2)}</p>
+              <p className="item">
+                {Number(item.valor * item.quant).toFixed(2)}
+              </p>
+            </Infos>
+          ))}
         <ListItemTextValor
           primary={`Total: ${definePreco(venda)}`}
           secondary={formaPagamento}

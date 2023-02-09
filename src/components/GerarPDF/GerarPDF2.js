@@ -12,30 +12,34 @@ const definePreco = (items) => {
 function GerarPDF(name, dateSale, formaPagamento, vendaList, rota, client) {
   pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-  const dados = vendaList.items.map((produto) => {
-    return [
-      {
-        text: produto.name,
-        fontSize: 9,
-        margin: [0, 2, 0, 2],
-      },
-      {
-        text: produto.quant,
-        fontSize: 9,
-        margin: [0, 2, 0, 2],
-      },
-      {
-        text: produto.valor.toFixed(2),
-        fontSize: 9,
-        margin: [0, 2, 0, 2],
-      },
-      {
-        text: (produto.valor * produto.quant).toFixed(2),
-        fontSize: 9,
-        margin: [0, 2, 0, 2],
-      },
-    ];
-  });
+  const dados = vendaList.items
+    .sort((a, b) => {
+      return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+    })
+    .map((produto) => {
+      return [
+        {
+          text: produto.name,
+          fontSize: 9,
+          margin: [0, 2, 0, 2],
+        },
+        {
+          text: produto.quant,
+          fontSize: 9,
+          margin: [0, 2, 0, 2],
+        },
+        {
+          text: produto.valor.toFixed(2),
+          fontSize: 9,
+          margin: [0, 2, 0, 2],
+        },
+        {
+          text: (produto.valor * produto.quant).toFixed(2),
+          fontSize: 9,
+          margin: [0, 2, 0, 2],
+        },
+      ];
+    });
 
   const details = {
     content: [
