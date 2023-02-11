@@ -19,6 +19,7 @@ import ItemAdded from "../../components/ItemAdded/ItemAdded";
 const RealVenda = ({ openDiv, setLogin }) => {
   const [arrayClients, setArrayClients] = useState([{}]);
   const [arrayItens, setArrayItens] = useState([{}]);
+  const [vendaFinalizada, setVendaFinalizada] = useState(false);
   const [pagamento, setPagamento] = useState("A vista");
   const [viewLoading, setViewLoading] = useState("none");
   const [rotaViagem, setRotaViagem] = useState("");
@@ -38,6 +39,7 @@ const RealVenda = ({ openDiv, setLogin }) => {
   });
 
   const finalizarVenda = () => {
+    setVendaFinalizada(true);
     setViewLoading("");
     const name = cliente.label;
     const sale = [];
@@ -181,7 +183,9 @@ const RealVenda = ({ openDiv, setLogin }) => {
         ))}
         {selectedArrayProduct.length ? (
           <FinishSale
-            disabled={!approvedSale || !cliente.label || !rotaViagem}
+            disabled={
+              !approvedSale || !cliente.label || !rotaViagem || vendaFinalizada
+            }
             onClick={() => finalizarVenda()}
           >
             Concluir
